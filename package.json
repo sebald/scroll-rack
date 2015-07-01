@@ -1,0 +1,31 @@
+{
+  "name": "scroll-rack",
+  "version": "0.0.0",
+  "description": "Create your code styles and documentation!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sebald/scroll-rack.git"
+  },
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com> (distractedbysquirrels.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebald/scroll-rack/issues"
+  },
+  "homepage": "https://github.com/sebald/scroll-rack#readme",
+  "dependencies": {
+    "caller-id": "^0.1.0",
+    "colors": "^1.1.2",
+    "handlebars": "^3.0.3",
+    "lodash": "^3.10.0",
+    "metalsmith": "^1.7.0",
+    "metalsmith-browser-sync": "^1.0.0",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-sass": "^1.2.1",
+    "metalsmith-simple-navigation": "^1.0.1",
+    "metalsmith-templates": "^0.7.0"
+  }
+}

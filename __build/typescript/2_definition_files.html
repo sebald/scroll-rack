@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Storybook</title>
+</head>
+<body>
+        <strong>typescript</strong><br>
+        <ul>
+            <li>Why using Typescript</li>
+            <li>Definition Files</li>
+            <li>API Specification</li>
+        </ul>
+        <strong>angular</strong><br>
+        <ul>
+            <li>Introduction</li>
+            <li>Design Pattern</li>
+            <li>Handling User Interactions</li>
+            <li>Modules &amp; Dependency Injection</li>
+        </ul>
+    <hr>
+	<h1>Definition Files</h1>
+	<div><p>We need a task (Gulp, npm, ...) that automatically updates a file called <code>all.ts</code> . The <code>all.ts</code> contains references to all definition (<code>*.d.ts</code>) and source (<code>*.ts</code>) files.</p>
+<p>Example contents:</p>
+<pre><code class="lang-javascript">/// &lt;reference path=&#39;libs/jquery/jquery.d.ts&#39; /&gt;
+/// &lt;reference path=&#39;libs/angular/angular.d.ts&#39; /&gt;
+/// &lt;reference path=&#39;models/TodoItem.ts&#39; /&gt;
+/// &lt;reference path=&#39;interfaces/ITodoScope.ts&#39; /&gt;
+/// &lt;reference path=&#39;interfaces/ITodoStorage.ts&#39; /&gt;
+/// &lt;reference path=&#39;directives/TodoFocus.ts&#39; /&gt;
+/// &lt;reference path=&#39;directives/TodoBlur.ts&#39; /&gt;
+/// &lt;reference path=&#39;services/TodoStorage.ts&#39; /&gt;
+/// &lt;reference path=&#39;controllers/TodoCtrl.ts&#39; /&gt;
+/// &lt;reference path=&#39;Application.ts&#39; /&gt;
+</code></pre>
+<p><em>Source: <a href="https://github.com/tastejs/todomvc/blob/gh-pages/examples/typescript-angular/js/_all.ts">https://github.com/tastejs/todomvc/blob/gh-pages/examples/typescript-angular/js/_all.ts</a></em> </p>
+<p>The generated <code>all.ts</code> file will help the editor/IDE to give the developer context-aware code completion and show error on development time (IntelliSense).</p>
+<blockquote>
+<p>TODO: Create a task that creates the <code>all.ts</code> file ...</p>
+</blockquote>
+</div>
+</body>
+</html>

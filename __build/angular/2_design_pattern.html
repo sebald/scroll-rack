@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Storybook</title>
+</head>
+<body>
+        <strong>typescript</strong><br>
+        <ul>
+            <li>Why using Typescript</li>
+            <li>Definition Files</li>
+            <li>API Specification</li>
+        </ul>
+        <strong>angular</strong><br>
+        <ul>
+            <li>Introduction</li>
+            <li>Design Pattern</li>
+            <li>Handling User Interactions</li>
+            <li>Modules &amp; Dependency Injection</li>
+        </ul>
+    <hr>
+	<h1>Design Pattern</h1>
+	<div><p>We want to keep our code modular and as reusable as possible. To achieve this we use the <em>container component</em> pattern, coined by <a href="https://facebook.github.io/react/">React</a>. The idea behind a container is can be summarized as:</p>
+<blockquote>
+<p>A container does data fetching and then renders its corresponding sub-component. That’s it.</p>
+</blockquote>
+<p>What this basically means is that we separate our <strong>data-fetching</strong> and <strong>rendering</strong> concerns. This also benefits <strong>reusability</strong> of components. Because if we do not separate fetching data from rendering markup, we only could use the component under that exact circumstance (same API bindings and settings).</p>
+<p>Instead the container component should pass data to its child components. Data should be passed via <strong>attribute bindings</strong> to the children and since these children should only be concerned with rendering, we&#39;ll call them <em>markup components</em>.</p>
+<p>To summarize and clarify:</p>
+<ul>
+<li><strong>Container Components</strong> are only concerned with fetching data. They do not provide any visual user interface elements. Data is usually received by using one or more services.</li>
+<li><strong>Markup Components</strong> are only concerned with rendering your interface. They know nothing about their surroundings. Instead all information they need is received via their attribute bindings.</li>
+</ul>
+<p>An example of this approach is shown below (ES6 only):</p>
+<pre><code class="lang-typescript">angular.module(&#39;myModule&#39;, [])
+
+    // Container Component
+    .directive(&#39;userDataContainer&#39;, () =&gt; ({
+        template: &#39;&lt;user-data user=&quot;vm.user&quot;&gt;&lt;/user-data&gt;&#39;,
+        controller: class {
+            constructor(userService) {
+                this.userService = userService
+
+                // User service to fetch data
+                this.userService.get()
+                    .then((user) =&gt; this.user = user)
+            }
+        },
+        controller: &#39;vm&#39;,
+        bindToController: true
+    }))
+
+
+    // Markup Component
+    .directive(&#39;userData&#39;, () =&gt; ({
+        template: `
+            &lt;strong&gt;{{ user.name }}&lt;/strong&gt;
+            &lt;div&gt;{{ user.email }}&lt;/div&gt;
+        `,
+        scope: {
+            user: &#39;=&#39;
+        }
+    }))
+</code></pre>
+</div>
+</body>
+</html>

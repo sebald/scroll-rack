@@ -22,19 +22,16 @@ function Sections ( options ) {
     
     // Conform metalsmith API
     return function ( files, metalsmith, done ) {
-        var template = fs.readFileSync( metalsmith.path(config.template), 'utf8'),
-            render = Handlebars.compile(template),
+        var template = metalsmith.path(config.template),
             nav = metalsmith._metadata[config.nav];
         
         // Root has contents page?
         if( !files[config.fileName] ) {
             files[config.fileName] = {
+                layout: template,
                 title: 'Sections',
-                contents: new Buffer(render({ 
-                    title: 'Sections',
-                    nav: nav,
-                    sections: { nav: nav }
-                }), 'utf-8')
+                sections: { nav: nav },
+                contents: new Buffer('')
             };
         }
         
@@ -43,14 +40,12 @@ function Sections ( options ) {
             _.forEach( nav, function ( section ) {
                 if( !files[section.name + '/' + config.fileName] ) {
                     files[section.name + '/' + config.fileName] = {
+                        layout: template,
                         title: _.capitalize(section.name),
-                        contents: new Buffer(render({
-                            title: _.capitalize(section.name),
-                            nav: nav,
-                            sections: {
-                                nav: [{ items: section.items }]
-                            } 
-                        }), 'utf-8')
+                        sections: {
+                            nav: [{ items: section.items }]
+                        },
+                        contents: new Buffer('')
                     };
                 }
             });

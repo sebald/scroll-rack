@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Scroll Rack  | {{ title }}</title>
+	<title>Scroll Rack | {{ title }}</title>
 </head>
 <body>
     <header>

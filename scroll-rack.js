@@ -66,10 +66,6 @@ function ScrollRack ( config ) {
             default: 'page.hbt',
             directory: 'templates'
         }))
-        .use(function ( files ) {
-                console.log(files);
-            }
-        )
         
         .use(sass({
             file: 'scss/style.scss',

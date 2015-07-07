@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Scroll Rack  | API Specification</title>
+</head>
+<body>
+    <header>
+        <span>Path: typescript/3_api_specification/index.html</span>
+            <strong>typescript</strong><br>
+            <ul>
+                <li><a href="/typescript/1_why/">Why using Typescript</a></li>
+                <li><a href="/typescript/2_definition_files/">Definition Files</a></li>
+                <li><a href="/typescript/3_api_specification/">API Specification</a></li>
+            </ul>
+            <strong>angular</strong><br>
+            <ul>
+                <li><a href="/angular/1_introduction/">Introduction</a></li>
+                <li><a href="/angular/2_design_pattern/">Design Pattern</a></li>
+                <li><a href="/angular/3_handling_interaction/">Handling User Interactions</a></li>
+                <li><a href="/angular/4_modules_di/">Modules &amp; Dependency Injection</a></li>
+            </ul>
+    </header>    <hr>
+	<h1>API Specification</h1>
+	<div><p>In order to have a certain consistency across API (JSON) objects, we make use of Typescript&#39;s interfaces. Not only will we have all information about API objects on development time, we also get a specification for our RESTful API.</p>
+<pre><code class="lang-typescript">interface Person {
+    name: string,
+    age: number,
+    pets?: array&lt;Pet&gt; 
+}
+</code></pre>
+<blockquote>
+<p>TODO: A task that creates a static document with alle interface definitions would be awesome!</p>
+</blockquote>
+</div>
+    <footer>
+        <em>Tue Jul 07 2015 10:11:30 GMT+0200 (CEST)</em>
+    </footer>
+
+</body>
+</html>

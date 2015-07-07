@@ -1,0 +1,10 @@
+{{#each nav}}
+    {{#if name}}
+    <strong>{{name}}</strong><br>
+    {{/if}}
+    <ul>
+        {{#each items}}
+        <li><a href="/{{ path }}">{{ title }}</a></li>
+        {{/each}}
+    </ul>
+{{/each}}

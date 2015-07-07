@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Storybook</title>
+	<title>Scroll Rack  | Handling User Interactions</title>
 </head>
 <body>
-        <strong>typescript</strong><br>
-        <ul>
-            <li>Why using Typescript</li>
-            <li>Definition Files</li>
-            <li>API Specification</li>
-        </ul>
-        <strong>angular</strong><br>
-        <ul>
-            <li>Introduction</li>
-            <li>Design Pattern</li>
-            <li>Handling User Interactions</li>
-            <li>Modules &amp; Dependency Injection</li>
-        </ul>
-    <hr>
+    <header>
+        <span>Path: angular/3_handling_interaction/index.html</span>
+            <strong>typescript</strong><br>
+            <ul>
+                <li><a href="/typescript/1_why/">Why using Typescript</a></li>
+                <li><a href="/typescript/2_definition_files/">Definition Files</a></li>
+                <li><a href="/typescript/3_api_specification/">API Specification</a></li>
+            </ul>
+            <strong>angular</strong><br>
+            <ul>
+                <li><a href="/angular/1_introduction/">Introduction</a></li>
+                <li><a href="/angular/2_design_pattern/">Design Pattern</a></li>
+                <li><a href="/angular/3_handling_interaction/">Handling User Interactions</a></li>
+                <li><a href="/angular/4_modules_di/">Modules &amp; Dependency Injection</a></li>
+            </ul>
+    </header>    <hr>
 	<h1>Handling User Interactions</h1>
 	<div><p>The above design pattern not only helps use to create reusable components. It also provides use with a clean way to let data flow through our application.</p>
 <p>Some interactions with the UI affect model data. A common example is submitting a form or simply changing the value of an input field that updates another part of the UI. Since the only visible element to users (<em>markup components</em>) are not allowed to interact with data services, components can accept callbacks. The callbacks will be invoked when certain events occur.</p>
@@ -81,5 +83,9 @@
     }))
 </code></pre>
 </div>
+    <footer>
+        <em>Tue Jul 07 2015 10:11:30 GMT+0200 (CEST)</em>
+    </footer>
+
 </body>
 </html>

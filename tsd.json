@@ -10,6 +10,9 @@
     },
     "lodash/lodash.d.ts": {
       "commit": "c7b1128cc9a8f5797bade826e7632b36b06a856c"
+    },
+    "handlebars/handlebars.d.ts": {
+      "commit": "2fe8a6fda29c3340a5e5672b1809a84c88729a30"
     }
   }
 }

@@ -1,0 +1,6 @@
+    <footer>
+        <em>{{ build_date }}</em>
+    </footer>
+
+</body>
+</html>

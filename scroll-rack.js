@@ -9,9 +9,15 @@ var callerId = require('caller-id'),
     Metalsmith = require('metalsmith'),
     
     browserSync = require('metalsmith-browser-sync'),
+    sections = require('./src/sections'),
+    layouts  = require('metalsmith-layouts'),
+    partials = require('metalsmith-register-partials'),
+    permalinks = require('metalsmith-permalinks'),
+    prism = require('metalsmith-prism'),
     markdown   = require('metalsmith-markdown'),
+    metadata = require('./src/metadata'),
     nav = require('./src/navigation'),
-    templates  = require('metalsmith-templates');
+    sass = require('./src/sass');
 
 
 // Main
@@ -21,7 +27,7 @@ function ScrollRack ( config ) {
         filesPath = path.join(path.dirname(caller.filePath), config.files),
         destPath = path.join(path.dirname(caller.filePath), config.dest),
         
-        ignoreFiles = config.ignore || ['*.js', '*.ts'],
+        ignoreFiles = config.ignore || ['*.js', '*.ts', '.DS_Store'],
         
         flags = [],
         metalsmith;
@@ -38,20 +44,44 @@ function ScrollRack ( config ) {
     metalsmith = Metalsmith(__dirname)
         .source(filesPath)
         .destination(destPath)
+        
         .ignore(ignoreFiles)
+        .use(partials({
+            directory: 'templates/partials'
+        }))
         
         .use(markdown())
-        .use(templates({
+        .use(permalinks({
+            pattern: ':category/:title'
+        }))
+        
+        .use(nav(config.nav))
+        .use(sections({ 
+            nav: config.nav.name || 'nav',
+            template: 'templates/sections.hbt'
+        }))
+        .use(metadata())
+        .use(layouts({
             engine: 'handlebars',
-            default: 'page.hbt'
-         }))
-        .use(nav(config.nav));
+            default: 'page.hbt',
+            directory: 'templates'
+        }))
+        .use(function ( files ) {
+                console.log(files);
+            }
+        )
+        
+        .use(sass({
+            file: 'scss/style.scss',
+            sourceMap: true,
+            outputStyle: 'expanded'
+        }));
     
     // Activate browser sync?
     if (~flags.indexOf('serve')) {
        metalsmith.use(browserSync({
            server: destPath,
-           files: [filesPath]
+           files: [filesPath, '!'+destPath]
        }));
     }
 
@@ -61,5 +91,6 @@ function ScrollRack ( config ) {
             console.log('===', 'Build complete!'.rainbow.bold, '===');
         });
 }
+
 
 module.exports = ScrollRack;

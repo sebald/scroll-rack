@@ -31,7 +31,7 @@ function Navigation ( options ) {
                 
                 groups[dir].push({
                     title: file.title,
-                    path: path
+                    path: path.replace(/index\.html$/, '')
                 });
             }
         });

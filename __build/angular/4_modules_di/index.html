@@ -2,23 +2,25 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Storybook</title>
+	<title>Scroll Rack  | Modules &amp; Dependency Injection</title>
 </head>
 <body>
-        <strong>typescript</strong><br>
-        <ul>
-            <li>Why using Typescript</li>
-            <li>Definition Files</li>
-            <li>API Specification</li>
-        </ul>
-        <strong>angular</strong><br>
-        <ul>
-            <li>Introduction</li>
-            <li>Design Pattern</li>
-            <li>Handling User Interactions</li>
-            <li>Modules &amp; Dependency Injection</li>
-        </ul>
-    <hr>
+    <header>
+        <span>Path: angular/4_modules_di/index.html</span>
+            <strong>typescript</strong><br>
+            <ul>
+                <li><a href="/typescript/1_why/">Why using Typescript</a></li>
+                <li><a href="/typescript/2_definition_files/">Definition Files</a></li>
+                <li><a href="/typescript/3_api_specification/">API Specification</a></li>
+            </ul>
+            <strong>angular</strong><br>
+            <ul>
+                <li><a href="/angular/1_introduction/">Introduction</a></li>
+                <li><a href="/angular/2_design_pattern/">Design Pattern</a></li>
+                <li><a href="/angular/3_handling_interaction/">Handling User Interactions</a></li>
+                <li><a href="/angular/4_modules_di/">Modules &amp; Dependency Injection</a></li>
+            </ul>
+    </header>    <hr>
 	<h1>Modules &amp; Dependency Injection</h1>
 	<div><h2 id="dependency-injection">Dependency Injection</h2>
 <p>Because we code in ES6/Typescript and make heavy use of the <code>class</code> syntax, we can not use automated annotations tools, such as <a href="https://github.com/olov/ng-annotate"><code>ng-annotate</code></a>. Instead we create a static <code>$inject</code> property on the class to load dependencies.</p>
@@ -64,5 +66,9 @@ let homeModule = angular.module(&#39;home&#39;, [
 export default homeModule;
 </code></pre>
 </div>
+    <footer>
+        <em>Tue Jul 07 2015 10:11:30 GMT+0200 (CEST)</em>
+    </footer>
+
 </body>
 </html>

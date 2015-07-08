@@ -3,26 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scroll Rack | API Specification</title>
+    
+    <link href="../../style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <span>Path: typescript/3_api_specification/index.html</span>
-            <strong>typescript</strong><br>
+    
+    <toggle-menu>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="-58.5 250.5 118 500" enable-background="new -58.5 250.5 118 500" xml:space="preserve">
+    <path d="M0.5 705.4L59.8 750.5V602.5v-92.6V250.5H-58.8v352h0.1L-58.8 750.5 0.5 705.4z"/>
+</svg>
+
+    </toggle-menu>
+    
+    <nav>
+            <section-nav-title>typescript</section-nav-title>
             <ul>
                 <li><a href="/typescript/1_why/">Why using Typescript</a></li>
                 <li><a href="/typescript/2_definition_files/">Definition Files</a></li>
                 <li><a href="/typescript/3_api_specification/">API Specification</a></li>
             </ul>
-            <strong>angular</strong><br>
+            <section-nav-title>angular</section-nav-title>
             <ul>
                 <li><a href="/angular/1_introduction/">Introduction</a></li>
                 <li><a href="/angular/2_design_pattern/">Design Pattern</a></li>
                 <li><a href="/angular/3_handling_interaction/">Handling User Interactions</a></li>
                 <li><a href="/angular/4_modules_di/">Modules &amp; Dependency Injection</a></li>
             </ul>
-    </header>    <hr>
-	<h1>API Specification</h1>
-	<div><p>In order to have a certain consistency across API (JSON) objects, we make use of Typescript&#39;s interfaces. Not only will we have all information about API objects on development time, we also get a specification for our RESTful API.</p>
+    </nav>
+    <main>
+    <article>
+    	<h1>API Specification</h1>
+    	<div><p>In order to have a certain consistency across API (JSON) objects, we make use of Typescript&#39;s interfaces. Not only will we have all information about API objects on development time, we also get a specification for our RESTful API.</p>
 <pre><code class="lang-typescript">interface Person {
     name: string,
     age: number,
@@ -33,8 +44,12 @@
 <p>TODO: A task that creates a static document with alle interface definitions would be awesome!</p>
 </blockquote>
 </div>
+    </article>
+    
+        <footer-push></footer-push>
+    </main>
     <footer>
-        <em>Tue Jul 07 2015 21:07:00 GMT+0200 (CEST)</em>
+        <time datetime="Thu Jul 09 2015 00:44:40 GMT+0200 (CEST)">Thu Jul 09 2015 00:44:40 GMT+0200 (CEST)</time>
     </footer>
 
 </body>

@@ -1,0 +1,15 @@
+h1,
+h2,
+h3 {
+    margin: 0 0 rem(50);
+    
+    font-family: $fontFamily--sans;
+    line-height: 1.2;
+}
+
+h1 {
+    @include heading-border;
+    @include breakpoint(small) {
+        font-size: rem(60);
+    }
+}

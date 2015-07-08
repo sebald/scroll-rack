@@ -9,7 +9,8 @@ var callerId = require('caller-id'),
     Metalsmith = require('metalsmith'),
     
     browserSync = require('metalsmith-browser-sync'),
-    sections = require('./src/sections'),
+    copy = require('./src/copy'),
+    helpers = require('metalsmith-register-helpers'),
     layouts  = require('metalsmith-layouts'),
     partials = require('metalsmith-register-partials'),
     permalinks = require('metalsmith-permalinks'),
@@ -17,7 +18,8 @@ var callerId = require('caller-id'),
     markdown   = require('metalsmith-markdown'),
     metadata = require('./src/metadata'),
     nav = require('./src/navigation'),
-    sass = require('./src/sass');
+    sass = require('./src/sass'),
+    sections = require('./src/sections');
 
 
 // Main
@@ -44,10 +46,12 @@ function ScrollRack ( config ) {
     metalsmith = Metalsmith(__dirname)
         .source(filesPath)
         .destination(destPath)
-        
         .ignore(ignoreFiles)
         .use(partials({
             directory: 'templates/partials'
+        }))
+        .use(helpers({
+            directory: 'templates/helpers'
         }))
         
         .use(markdown())
@@ -58,12 +62,13 @@ function ScrollRack ( config ) {
         .use(nav(config.nav))
         .use(sections({ 
             nav: config.nav.name || 'nav',
-            template: 'templates/sections.hbt'
+            template: 'templates/sections.hbs',
+            redirect: true
         }))
         .use(metadata())
         .use(layouts({
             engine: 'handlebars',
-            default: 'page.hbt',
+            default: 'page.hbs',
             directory: 'templates'
         }))
         
@@ -71,19 +76,29 @@ function ScrollRack ( config ) {
             file: 'scss/style.scss',
             sourceMap: true,
             outputStyle: 'expanded'
+        }))
+        .use(copy({
+            pattern: 'assets/js/*.js',
+            target: ''
         }));
     
     // Activate browser sync?
     if (~flags.indexOf('serve')) {
        metalsmith.use(browserSync({
            server: destPath,
-           files: [filesPath, '!'+destPath]
+           files: [
+               __dirname + '/templates/**/*.hbs', 
+               __dirname + '/templates/helpers/**/*.js',
+               __dirname + '/scss/**/*.scss',
+               filesPath + '**/*.md'
+           ],
+           reloadDelay: 500
        }));
     }
 
     metalsmith
         .build(function(err) {
-        if (err) { throw err; }
+            if (err) { throw err; }
             console.log('===', 'Build complete!'.rainbow.bold, '===');
         });
 }

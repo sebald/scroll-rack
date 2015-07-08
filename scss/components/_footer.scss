@@ -1,0 +1,21 @@
+footer,
+footer-push {
+    height: rem(22);
+}
+
+footer-push {
+    display: block;
+}
+
+footer {
+    padding: rem(5) rem(30);
+    color: $grey;
+    font-size: rem(12);
+    line-height: 1;
+    text-align: right;
+    
+    @include breakpoint(small) {
+        padding-left: rem(10);
+        padding-right: rem(10);
+    }
+}

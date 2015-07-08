@@ -1,0 +1,34 @@
+toggle-menu {
+    display: block;
+    position: fixed;
+    
+    height: rem(158);
+    width: rem(55);
+    
+    padding: 0 rem(10) rem(10);
+    
+    color: $purple--light;
+    cursor: pointer;
+    
+    @include transform(translate(rem(5), rem(-90)));
+    @include transition(all 0.3s ease);
+    
+    // Icon
+    path {
+        fill: currentColor;
+    }
+
+    &:hover {
+        color: $purple;
+        @include transform(translate(rem(5), rem(-65)));
+    }
+    
+    // Breakpoint
+    @include breakpoint(1000) {
+        @include transform(translate(rem(40), rem(-90)));
+        
+        &:hover {
+            @include transform(translate(rem(40), rem(-65)));
+        }
+    }
+}

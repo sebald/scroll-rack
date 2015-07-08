@@ -1,12 +1,10 @@
-$bodyBackgroundColor: hotpink;
+$bodyBackgroundColor: #fff;
 
 $bodyColor: $black;
 $bodyFontWeight: 400;
 $bodyFontSize: 100%;
 $bodyLineHeight: 1.5;
-$bodyFontFamily: 'Raleway', 'Segoe UI', 'Helvetica Neue', Helvetica, Tahoma, Arial, sans-serif;
-
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,200,300,700,600,900);
+$bodyFontFamily: $fontFamily--serif;
 
 *,
 *:after,
@@ -32,13 +30,4 @@ body {
 	-webkit-text-size-adjust: 100%;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
-}
-
-a {
-	color: $black;
-	text-decoration: none;
-
-	&:hover {
-		color: lighten($black, 25%);
-	}
 }

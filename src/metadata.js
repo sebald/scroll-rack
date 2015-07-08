@@ -6,8 +6,6 @@ function Metadata () {
         // Add path info to each file
         _.forEach(files, function ( f, path ) {
             files[path].path = path;
-            // console.log(files[path]);
-            // console.log('-------------------');
         });
         
         // Add build date

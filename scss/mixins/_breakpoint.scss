@@ -1,0 +1,58 @@
+// Vars (I put these in a _globals.scss with all my other variables)
+// ------------------------
+$breakpointTiny: 580;
+$breakpointSmall: 960;
+$breakpointNormal: 1200;
+
+// Breakpoint Mixin
+// ------------------------
+$oldie: false !default;
+
+// Mixin to add specific styles to older browsers, namely IE8.
+@mixin oldie {
+	@if $oldie {
+		// Wrap the oldies.
+		.oldie & {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint($type) {
+	$width: 0 !default;
+
+	// Get width from globals.
+	@if $type == tiny {
+		$width: $breakpointTiny;
+	}
+	@else if $type == small {
+		$width: $breakpointSmall;
+	}
+	@else if $type == normal {
+		$width: $breakpointNormal;
+	}
+	// Test if type is at least a number.
+	@else if round($type) == $type {
+		$width: $type
+	}
+	// Else throw a meaningful warning.
+	@else {
+		@warn "Breakpoint param is neither a knoown var nor is it a number!";
+	}
+
+
+	// Add media query for $width and oldies.
+	@media (min-width: em($width))  { @content; }
+
+	// Create styles for oldies?
+	@if $oldie {
+		@if $oldie >= $width {
+			// Wrap the oldies.
+			// .oldie & {
+			@include oldie {
+				@content;
+			}
+		}
+	}
+
+}

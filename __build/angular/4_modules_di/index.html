@@ -3,26 +3,37 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scroll Rack | Modules &amp; Dependency Injection</title>
+    
+    <link href="../../style.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <span>Path: angular/4_modules_di/index.html</span>
-            <strong>typescript</strong><br>
+    
+    <toggle-menu>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="-58.5 250.5 118 500" enable-background="new -58.5 250.5 118 500" xml:space="preserve">
+    <path d="M0.5 705.4L59.8 750.5V602.5v-92.6V250.5H-58.8v352h0.1L-58.8 750.5 0.5 705.4z"/>
+</svg>
+
+    </toggle-menu>
+    
+    <nav>
+            <section-nav-title>typescript</section-nav-title>
             <ul>
                 <li><a href="/typescript/1_why/">Why using Typescript</a></li>
                 <li><a href="/typescript/2_definition_files/">Definition Files</a></li>
                 <li><a href="/typescript/3_api_specification/">API Specification</a></li>
             </ul>
-            <strong>angular</strong><br>
+            <section-nav-title>angular</section-nav-title>
             <ul>
                 <li><a href="/angular/1_introduction/">Introduction</a></li>
                 <li><a href="/angular/2_design_pattern/">Design Pattern</a></li>
                 <li><a href="/angular/3_handling_interaction/">Handling User Interactions</a></li>
                 <li><a href="/angular/4_modules_di/">Modules &amp; Dependency Injection</a></li>
             </ul>
-    </header>    <hr>
-	<h1>Modules &amp; Dependency Injection</h1>
-	<div><h2 id="dependency-injection">Dependency Injection</h2>
+    </nav>
+    <main>
+    <article>
+    	<h1>Modules &amp; Dependency Injection</h1>
+    	<div><h2 id="dependency-injection">Dependency Injection</h2>
 <p>Because we code in ES6/Typescript and make heavy use of the <code>class</code> syntax, we can not use automated annotations tools, such as <a href="https://github.com/olov/ng-annotate"><code>ng-annotate</code></a>. Instead we create a static <code>$inject</code> property on the class to load dependencies.</p>
 <p>The injected entities can then be used in the class constructor. In order to have the correct type definition for Angular services, we use the &quot;official&quot; <a href="https://github.com/borisyankov/DefinitelyTyped/blob/master/angularjs/angular.d.ts">TSD</a>. Loading additional definition files may be necessary.</p>
 <pre><code class="lang-typescript">export class SomeController {
@@ -66,8 +77,12 @@ let homeModule = angular.module(&#39;home&#39;, [
 export default homeModule;
 </code></pre>
 </div>
+    </article>
+    
+        <footer-push></footer-push>
+    </main>
     <footer>
-        <em>Tue Jul 07 2015 21:07:00 GMT+0200 (CEST)</em>
+        <time datetime="Thu Jul 09 2015 00:44:40 GMT+0200 (CEST)">Thu Jul 09 2015 00:44:40 GMT+0200 (CEST)</time>
     </footer>
 
 </body>

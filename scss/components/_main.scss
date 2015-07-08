@@ -1,0 +1,13 @@
+main {
+    max-width: rem(960);
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    
+    margin: 0 auto rem(-22);
+    padding: rem(70) rem(30) 0;
+    
+    @include breakpoint(small) {
+        padding-top: rem(100);
+    }
+}

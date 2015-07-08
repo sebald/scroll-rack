@@ -2,7 +2,8 @@
 
 var _ = require('lodash'),
     fs = require('fs'),
-    Handlebars = require('handlebars');
+    Handlebars = require('handlebars'),
+    redirect = require('metalsmith-redirect');
 
 
 function Sections ( options ) {
@@ -11,7 +12,8 @@ function Sections ( options ) {
         
     defaults = {
         nav: 'nav',
-        fileName: 'index.html'
+        fileName: 'index.html',
+        redirect: false
     };
     config = _.assign(defaults, options);
     
@@ -36,7 +38,7 @@ function Sections ( options ) {
         }
         
         // Sections have contents page?
-        if( Object.keys(nav).length ) {
+        if( Object.keys(nav).length && !config.redirect ) {
             _.forEach( nav, function ( section ) {
                 if( !files[section.name + '/' + config.fileName] ) {
                     files[section.name + '/' + config.fileName] = {
@@ -49,6 +51,17 @@ function Sections ( options ) {
                     };
                 }
             });
+        }
+        
+        // Build redirects
+        if( config.redirect ) {
+            var redirect_config = {};
+            _.forEach( nav, function ( section ) {
+               if( !files['/' + section.name + '/.index.html'] ) {
+                   redirect_config['/' + section.name] = '/' + section.items[0].path;
+               }
+            });
+            redirect(redirect_config)(files, metalsmith, function () {});
         }
         
         done();

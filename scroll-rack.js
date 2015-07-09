@@ -95,6 +95,8 @@ function ScrollRack ( config ) {
            .use(watch({
                paths: {
                    '${source}/**/*': true,
+                   'scroll-rack.js': '**/*',
+                   'plugins/**/*': '**/*',
                    'templates/**/*': '**/*',
                    'scss/**/*.scss': '**/*',
                    'assets/js/*': '**/*'

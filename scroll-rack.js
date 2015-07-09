@@ -8,18 +8,19 @@ var callerId = require('caller-id'),
     // Metalsmith
     Metalsmith = require('metalsmith'),
     
-    browserSync = require('metalsmith-browser-sync'),
-    copy = require('./src/copy'),
+    copy = require('./plugins/copy'),
     helpers = require('metalsmith-register-helpers'),
     layouts  = require('metalsmith-layouts'),
     partials = require('metalsmith-register-partials'),
     permalinks = require('metalsmith-permalinks'),
     prism = require('metalsmith-prism'),
     markdown   = require('metalsmith-markdown'),
-    metadata = require('./src/metadata'),
-    nav = require('./src/navigation'),
-    sass = require('./src/sass'),
-    sections = require('./src/sections');
+    metadata = require('./plugins/metadata'),
+    nav = require('./plugins/navigation'),
+    sass = require('./plugins/sass'),
+    sections = require('./plugins/sections'),
+    serve = require('metalsmith-serve'),
+    watch = require('metalsmith-watch');
 
 
 // Main
@@ -72,34 +73,36 @@ function ScrollRack ( config ) {
             directory: 'templates'
         }))
         
+        .use(copy({
+            pattern: __dirname + '/assets/js/*.js',
+            target: ''
+        }))
         .use(sass({
             file: 'scss/style.scss',
             sourceMap: true,
             outputStyle: 'expanded'
-        }))
-        .use(copy({
-            pattern: __dirname + '/assets/js/*.js',
-            target: ''
         }));
     
     // Activate browser sync?
     if (~flags.indexOf('serve')) {
-       metalsmith.use(browserSync({
-           server: destPath,
-           files: [
-               __dirname + '/templates/**/*.hbs', 
-               __dirname + '/templates/helpers/**/*.js',
-               __dirname + '/scss/**/*.scss',
-               filesPath + '**/*.md'
-           ],
-           reloadDelay: 500
-       }));
+       metalsmith
+           .use(serve({
+               verbose: true
+           }))
+           .use(watch({
+               paths: {
+                   "${source}/**/*": true,
+                   "templates/**/*": "**/*",
+                   "assets/js/*": "**/*"
+               },
+               livereload: true
+           }));
     }
 
     metalsmith
         .build(function(err) {
             if (err) { throw err; }
-            console.log('[scroll-rack] Build complete!'.green.bold);
+            console.log('[scroll-rack] '.grey + 'Build complete!'.green.bold);
         });
 }
 

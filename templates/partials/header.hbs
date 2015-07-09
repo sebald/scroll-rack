@@ -8,11 +8,16 @@
 </head>
 <body>
     
-    <toggle-menu>
+    <page-menu-toggle>
         {{{ svg 'bookmark' }}}
-    </toggle-menu>
+    </page-menu-toggle>
     
-    <nav>
-        {{> nav}}
-    </nav>
+    <page-menu>
+        <page-menu-title>Table of Contents</page-menu-title>
+        <section-list>
+            {{> nav}}
+        </section-list>
+    </page-menu>
+    <page-menu-backdrop></page-menu-backdrop>
+    
     <main>

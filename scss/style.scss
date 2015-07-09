@@ -3,6 +3,7 @@
 
 @import "mixins/breakpoint";
 @import "mixins/borders";
+@import "mixins/transition";
 
 @import "core/colors";
 @import "core/fonts";
@@ -11,9 +12,8 @@
 @import "components/main";
 @import "components/article";
 @import "components/footer";
-@import "components/nav";
 @import "components/heading";
 @import "components/links";
 
-@import "components/toggle-menu";
-@import "components/section-nav";
+@import "components/page-menu";
+@import "components/section-list";

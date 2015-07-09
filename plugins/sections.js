@@ -31,7 +31,7 @@ function Sections ( options ) {
         if( !files[config.fileName] ) {
             files[config.fileName] = {
                 layout: template,
-                title: 'Sections',
+                title: 'Table of Contents',
                 sections: { nav: nav },
                 contents: new Buffer('')
             };

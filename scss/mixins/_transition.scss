@@ -1,0 +1,3 @@
+@mixin transition-timing-cubic-bezier {
+    @include transition-timing-function(cubic-bezier(0.7,0,0.3,1));
+}

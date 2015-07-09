@@ -8,6 +8,8 @@ h3 {
 }
 
 h1 {
+    color: $purple--dark;
+    
     @include heading-border;
     @include breakpoint(small) {
         font-size: rem(60);

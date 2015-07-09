@@ -1,17 +1,21 @@
 !(function () {
     var OPEN_ATTRIBUTE = 'is-open';
     
-    var toggle_element = document.querySelector('toggle-menu'),
-        nav_element = document.querySelector('nav');
+    var toggle = document.querySelector('page-menu-toggle'),
+        body = document.querySelector('body'),
+        backdrop = document.querySelector('page-menu-backdrop');
     
     
     // Toggle navigation menu
-    toggle_element.addEventListener('click', toggleMenu);
+    toggle.addEventListener('click', toggleMenu);
+    backdrop.addEventListener('click', toggleMenu);
+
+   backdrop = document.querySelector('page-menu-backdrop') 
     function toggleMenu () {
-        if ( nav_element.hasAttribute(OPEN_ATTRIBUTE) ) {
-            nav_element.removeAttribute(OPEN_ATTRIBUTE);
+        if ( body.hasAttribute(OPEN_ATTRIBUTE) ) {
+            body.removeAttribute(OPEN_ATTRIBUTE);
         } else {
-            nav_element.setAttribute(OPEN_ATTRIBUTE, '');
+            body.setAttribute(OPEN_ATTRIBUTE, '');
         }
     }
 })();

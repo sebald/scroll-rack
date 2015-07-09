@@ -94,9 +94,10 @@ function ScrollRack ( config ) {
            }))
            .use(watch({
                paths: {
-                   "${source}/**/*": true,
-                   "templates/**/*": "**/*",
-                   "assets/js/*": "**/*"
+                   '${source}/**/*': true,
+                   'templates/**/*': '**/*',
+                   'scss/**/*.scss': '**/*',
+                   'assets/js/*': '**/*'
                },
                livereload: true
            }));

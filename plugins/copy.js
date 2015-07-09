@@ -11,7 +11,14 @@ function Copy ( list ) {
     // Conform metalsmith API
     return function ( files, metalsmith, done ) {
         _.forEach(list, function ( item ) {
-            var list = glob.sync(item.pattern);
+            var list = [];
+            if ( item.pattern ) {
+                list = glob.sync(item.pattern);
+            } else {
+                console.log(('[scroll-rack]'.grey +' WARNING: "' +
+                    'Copy task needs a "pattern" or "files" attribute!').yellow);
+                return;
+            }
             
             if( list.length ) {
                 _.forEach(list, function ( filename ) {
@@ -19,6 +26,15 @@ function Copy ( list ) {
                     
                     buffer = fs.readFileSync(filename);
                     filepath = path.join(item.target, path.basename(filename));
+                    
+                    // Rename
+                    if( item.rename ) {
+                        filepath = path.join(
+                            path.dirname(filepath),
+                            item.rename
+                        );
+                    }
+                    
                     files[filepath] = {
                         contents: buffer
                     };

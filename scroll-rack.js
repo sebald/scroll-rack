@@ -5,6 +5,8 @@ var callerId = require('caller-id'),
     path = require('path'),
     colors = require('colors'),
     open = require('open'),
+    
+    escape = require('./plugins/escape'),
 
     // Metalsmith
     Metalsmith = require('metalsmith'),
@@ -15,12 +17,13 @@ var callerId = require('caller-id'),
     partials = require('metalsmith-register-partials'),
     permalinks = require('metalsmith-permalinks'),
     prism = require('metalsmith-prism'),
-    markdown   = require('metalsmith-markdown'),
+    markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),
     sass = require('./plugins/sass'),
     sections = require('./plugins/sections'),
     serve = require('metalsmith-serve'),
+    theme = require('./plugins/theme'),
     watch = require('metalsmith-watch');
 
 
@@ -34,6 +37,7 @@ function ScrollRack ( config ) {
         ignoreFiles = config.ignore || ['*.js', '*.ts', '.DS_Store'],
         
         flags = [],
+        md,
         metalsmith;
 
     
@@ -45,6 +49,15 @@ function ScrollRack ( config ) {
     });
     
     
+    // Configure markdown
+    md = markdown({ 
+        breaks: true,
+        langPrefix: 'hljs ',
+        highlight: escape
+    });
+    
+    
+    // Build
     metalsmith = Metalsmith(__dirname)
         .source(filesPath)
         .destination(destPath)
@@ -56,7 +69,7 @@ function ScrollRack ( config ) {
             directory: 'templates/helpers'
         }))
         
-        .use(markdown())
+        .use(md)
         .use(permalinks({
             pattern: ':category/:title'
         }))
@@ -76,10 +89,16 @@ function ScrollRack ( config ) {
             directory: 'templates'
         }))
         
-        .use(copy({
-            pattern: __dirname + '/assets/js/*.js',
-            target: ''
-        }))
+        .use(copy([
+            {
+                pattern: __dirname + '/assets/js/*.js',
+                target: ''
+            }, {
+                pattern: theme(config.code_theme),
+                target: '',
+                rename: 'theme.css'
+            }
+        ]))
         .use(sass({
             file: 'scss/style.scss',
             sourceMap: true,

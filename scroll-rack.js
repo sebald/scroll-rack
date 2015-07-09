@@ -63,7 +63,7 @@ function ScrollRack ( config ) {
         .use(sections({ 
             nav: config.nav.name || 'nav',
             template: 'templates/sections.hbs',
-            redirect: true
+            redirect: config.redirect || true
         }))
         .use(metadata())
         .use(layouts({
@@ -78,7 +78,7 @@ function ScrollRack ( config ) {
             outputStyle: 'expanded'
         }))
         .use(copy({
-            pattern: 'assets/js/*.js',
+            pattern: __dirname + '/assets/js/*.js',
             target: ''
         }));
     
@@ -99,7 +99,7 @@ function ScrollRack ( config ) {
     metalsmith
         .build(function(err) {
             if (err) { throw err; }
-            console.log('===', 'Build complete!'.rainbow.bold, '===');
+            console.log('[scroll-rack] Build complete!'.green.bold);
         });
 }
 

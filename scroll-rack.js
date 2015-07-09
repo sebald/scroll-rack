@@ -4,6 +4,7 @@
 var callerId = require('caller-id'),
     path = require('path'),
     colors = require('colors'),
+    open = require('open'),
 
     // Metalsmith
     Metalsmith = require('metalsmith'),
@@ -66,7 +67,9 @@ function ScrollRack ( config ) {
             template: 'templates/sections.hbs',
             redirect: config.redirect || true
         }))
-        .use(metadata())
+        .use(metadata({
+            flags: flags
+        }))
         .use(layouts({
             engine: 'handlebars',
             default: 'page.hbs',
@@ -103,6 +106,9 @@ function ScrollRack ( config ) {
         .build(function(err) {
             if (err) { throw err; }
             console.log('[scroll-rack] '.grey + 'Build complete!'.green.bold);
+            if (~flags.indexOf('serve')) {
+                open('http://localhost:'+ (config.port || 8080) + '/');
+            }
         });
 }
 

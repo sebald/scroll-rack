@@ -1,6 +1,6 @@
 var _ = require('lodash');
 
-function Metadata () {
+function Metadata ( options ) {
     // Conform metalsmith API
     return function ( files, metalsmith, done ) {
         // Add path info to each file
@@ -10,7 +10,8 @@ function Metadata () {
         
         // Add build date
         metalsmith._metadata['build_date'] = new Date();
-        
+        // Inject livereload?
+        metalsmith._metadata['livereload'] = options.flags.indexOf('serve') !== -1;
         done();
     };
 }

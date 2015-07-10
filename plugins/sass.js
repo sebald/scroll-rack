@@ -35,7 +35,7 @@ function Sass ( config ) {
 
                 // Use previous sass build if possible.
                 if( metalsmith._metadata['sass_backup'] ) {
-                    log(chalk.white('Using last sass build.'))
+                    log(chalk.white('Previous Sass build restored.'))
                     result = metalsmith._metadata['sass_backup'];
                 }
             }

@@ -1,4 +1,5 @@
-var chalk = require('chalk'),
+var _ = require('lodash'),
+    chalk = require('chalk'),
     gaze = require('gaze'),
     tinylr = require('tiny-lr'),
     request = require('request'),
@@ -27,6 +28,9 @@ function Rebuild ( config ) {
         gaze(config.pattern, gazing);
         function gazing( err, watcher ) {
             log(chalk.white('Start watching files...'));
+            _.forEach(config.pattern, function ( pat ) {
+                log(chalk.cyan('Wachting: ') + chalk.white.italic(pat));
+            });
 
             watcher.on('changed', function ( filepath ) {
                 var rel_path = filepath.replace(metalsmith._source, '');

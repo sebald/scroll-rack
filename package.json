@@ -36,7 +36,6 @@
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-register-partials": "^1.0.2",
     "metalsmith-serve": "0.0.3",
-    "metalsmith-watch": "^1.0.1",
     "node-sass": "^3.2.0",
     "open": "0.0.5",
     "request": "^2.58.0",

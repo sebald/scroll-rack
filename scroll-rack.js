@@ -100,6 +100,9 @@ function ScrollRack ( config ) {
                 pattern: theme(config.code_theme),
                 target: '',
                 rename: 'theme.css'
+            }, {
+                pattern: __dirname + '/assets/favicon.ico',
+                target: ''
             }
         ]))
         .use(sass({
@@ -115,7 +118,14 @@ function ScrollRack ( config ) {
                 // verbose: true
             }))
             .use(rebuild({
-                pattern: [filesPath + '**/*'],
+                pattern: [
+                    filesPath + '**/*',
+                    __dirname + '/scroll-rack.js',
+                    __dirname + '/plugins/**/*',
+                    __dirname + '/templates/**/*',
+                    __dirname + '/scss/**/*.scss',
+                    __dirname + '/assets/**/*'
+                ],
                 livereload: true
             }));
     }

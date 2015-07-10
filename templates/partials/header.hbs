@@ -3,16 +3,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Scroll Rack | {{ title }}</title>
-    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+
     <link href="{{ relative_path path 'style.css' }}" rel="stylesheet">
     <link href="{{ relative_path path 'theme.css' }}" rel="stylesheet">
 </head>
 <body>
-    
+
     <page-menu-toggle>
         {{{ svg 'bookmark' }}}
     </page-menu-toggle>
-    
+
     <page-menu>
         <page-menu-title>Table of Contents</page-menu-title>
         <section-list>
@@ -20,5 +22,5 @@
         </section-list>
     </page-menu>
     <page-menu-backdrop></page-menu-backdrop>
-    
+
     <main>

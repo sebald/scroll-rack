@@ -1,6 +1,6 @@
-/// <reference path="../typings/tsd.d.ts"/>
-
 var _ = require('lodash'),
+    chalk = require('chalk'),
+    log = require('./../helpers/log'),
     fs = require('fs'),
     Handlebars = require('handlebars'),
     redirect = require('metalsmith-redirect');
@@ -9,24 +9,25 @@ var _ = require('lodash'),
 function Sections ( options ) {
     var defaults,
         config;
-        
+
     defaults = {
         nav: 'nav',
         fileName: 'index.html',
         redirect: false
     };
     config = _.assign(defaults, options);
-    
+
     if( !config.template ) {
-        throw new Error('[Scroll Rack] You have to specify a template path for navigation!');
+        log(chalk.red('You have to specify a template path for navigation!'));
+        return;
     }
 
-    
+
     // Conform metalsmith API
     return function ( files, metalsmith, done ) {
         var template = metalsmith.path(config.template),
             nav = metalsmith._metadata[config.nav];
-        
+
         // Root has contents page?
         if( !files[config.fileName] ) {
             files[config.fileName] = {
@@ -36,7 +37,7 @@ function Sections ( options ) {
                 contents: new Buffer('')
             };
         }
-        
+
         // Sections have contents page?
         if( Object.keys(nav).length && !config.redirect ) {
             _.forEach( nav, function ( section ) {
@@ -52,7 +53,7 @@ function Sections ( options ) {
                 }
             });
         }
-        
+
         // Build redirects
         if( config.redirect ) {
             var redirect_config = {};
@@ -63,7 +64,7 @@ function Sections ( options ) {
             });
             redirect(redirect_config)(files, metalsmith, function () {});
         }
-        
+
         done();
     }
 }

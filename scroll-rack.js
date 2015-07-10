@@ -3,14 +3,16 @@
 // Import
 var callerId = require('caller-id'),
     path = require('path'),
-    colors = require('colors'),
     open = require('open'),
-    
-    escape = require('./plugins/escape'),
+    chalk = require('chalk'),
+
+    log = require('./helpers/log'),
+    escape = require('./helpers/escape'),
+    theme = require('./helpers/theme'),
 
     // Metalsmith
     Metalsmith = require('metalsmith'),
-    
+
     copy = require('./plugins/copy'),
     helpers = require('metalsmith-register-helpers'),
     layouts  = require('metalsmith-layouts'),
@@ -20,43 +22,44 @@ var callerId = require('caller-id'),
     markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),
+    rebuild = require('./plugins/rebuild'),
     sass = require('./plugins/sass'),
     sections = require('./plugins/sections'),
     serve = require('metalsmith-serve'),
-    theme = require('./plugins/theme'),
     watch = require('metalsmith-watch');
 
 
 // Main
 function ScrollRack ( config ) {
     var caller = callerId.getData(),
-    
+
         filesPath = path.join(path.dirname(caller.filePath), config.files),
         destPath = path.join(path.dirname(caller.filePath), config.dest),
-        
         ignoreFiles = config.ignore || ['*.js', '*.ts', '.DS_Store'],
-        
+
         flags = [],
         md,
         metalsmith;
 
-    
+
     // Parse command line arguments
     [].concat(process.argv, process.execArgv).forEach(function( arg ) {
         if( /^--/.test(arg) ) {
             flags.push(arg.replace(/^--/, ''));
         }
     });
-    
-    
+
+
     // Configure markdown
-    md = markdown({ 
+    md = markdown({
+        linkify: true,
         breaks: true,
         langPrefix: 'hljs ',
         highlight: escape
     });
-    
-    
+    md.parser.use(require('markdown-it-footnote'));
+
+
     // Build
     metalsmith = Metalsmith(__dirname)
         .source(filesPath)
@@ -68,14 +71,14 @@ function ScrollRack ( config ) {
         .use(helpers({
             directory: 'templates/helpers'
         }))
-        
+
         .use(md)
         .use(permalinks({
             pattern: ':category/:title'
         }))
-        
+
         .use(nav(config.nav))
-        .use(sections({ 
+        .use(sections({
             nav: config.nav.name || 'nav',
             template: 'templates/sections.hbs',
             redirect: config.redirect || true
@@ -88,7 +91,7 @@ function ScrollRack ( config ) {
             default: 'page.hbs',
             directory: 'templates'
         }))
-        
+
         .use(copy([
             {
                 pattern: __dirname + '/assets/js/*.js',
@@ -104,30 +107,23 @@ function ScrollRack ( config ) {
             sourceMap: true,
             outputStyle: 'expanded'
         }));
-    
+
     // Activate browser sync?
     if (~flags.indexOf('serve')) {
-       metalsmith
-           .use(serve({
-               verbose: true
-           }))
-           .use(watch({
-               paths: {
-                   '${source}/**/*': true,
-                   'scroll-rack.js': '**/*',
-                   'plugins/**/*': '**/*',
-                   'templates/**/*': '**/*',
-                   'scss/**/*.scss': '**/*',
-                   'assets/js/*': '**/*'
-               },
-               livereload: true
-           }));
+        metalsmith
+            .use(serve({
+                // verbose: true
+            }))
+            .use(rebuild({
+                pattern: [filesPath + '**/*'],
+                livereload: true
+            }));
     }
 
     metalsmith
         .build(function(err) {
             if (err) { throw err; }
-            console.log('[scroll-rack] '.grey + 'Build complete!'.green.bold);
+            log(chalk.green.bold('Build complete!'));
             if (~flags.indexOf('serve')) {
                 open('http://localhost:'+ (config.port || 8080) + '/');
             }

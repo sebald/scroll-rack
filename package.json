@@ -18,15 +18,17 @@
   "homepage": "https://github.com/sebald/scroll-rack#readme",
   "dependencies": {
     "caller-id": "^0.1.0",
-    "colors": "^1.1.2",
+    "chalk": "^1.1.0",
+    "gaze": "^0.5.1",
     "glob": "^5.0.13",
     "handlebars": "^3.0.3",
     "highlight.js": "^8.6.0",
+    "livereload": "^0.3.7",
     "lodash": "^3.10.0",
+    "markdown-it-footnote": "^1.0.0",
     "metalsmith": "^1.7.0",
     "metalsmith-each": "^0.1.1",
     "metalsmith-layouts": "^1.0.0",
-    "metalsmith-markdown": "^0.2.1",
     "metalsmith-markdownit": "^0.1.2",
     "metalsmith-permalinks": "^0.4.0",
     "metalsmith-prism": "^1.1.0",
@@ -36,6 +38,8 @@
     "metalsmith-serve": "0.0.3",
     "metalsmith-watch": "^1.0.1",
     "node-sass": "^3.2.0",
-    "open": "0.0.5"
+    "open": "0.0.5",
+    "request": "^2.58.0",
+    "tiny-lr": "^0.1.6"
   }
 }

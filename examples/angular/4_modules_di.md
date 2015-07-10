@@ -4,7 +4,7 @@ title: Modules & Dependency Injection
 
 ## Dependency Injection
 
-Because we code in ES6/Typescript and make heavy use of the `class` syntax, we can not use automated annotations tools, such as [`ng-annotate`](https://github.com/olov/ng-annotate). Instead we create a static `$inject` property on the class to load dependencies.
+Because we code in ES6/Typescript and make heavy use of the `class` syntax, we can not use automated annotations tools, such as `ng-annotate`^[[https://github.com/olov/ng-annotate](https://github.com/olov/ng-annotate)]. Instead we create a static `$inject` property on the class to load dependencies.
 
 The injected entities can then be used in the class constructor. In order to have the correct type definition for Angular services, we use the "official" [TSD](https://github.com/borisyankov/DefinitelyTyped/blob/master/angularjs/angular.d.ts). Loading additional definition files may be necessary.
 

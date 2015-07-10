@@ -124,3 +124,8 @@ page-menu-toggle {
         }
     }
 }
+
+
+body[is-open] {
+    overflow: hidden;
+}

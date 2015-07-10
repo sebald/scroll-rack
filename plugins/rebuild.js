@@ -34,7 +34,7 @@ function Rebuild ( config ) {
 
             watcher.on('changed', function ( filepath ) {
                 var rel_path = filepath.replace(metalsmith._source, '');
-                log(chalk.green('File' + chalk.italic(rel_path) + 'has changed.'));
+                log(chalk.green('File ' + chalk.italic(rel_path) + ' has changed.'));
                 log(chalk.white('Rebuilding project...'));
                 metalsmith.build(function ( err ) {
                     if (err) { throw err; }

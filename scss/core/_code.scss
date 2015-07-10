@@ -1,8 +1,8 @@
 code:not(.hljs) {
     padding: rem(2) rem(5);
-    
+
     border-radius: 2px;
-    background: $grey--lightest;
-    
+    background: lighten($grey--lightest, 2%);
+
     font-size: 90%;
 }

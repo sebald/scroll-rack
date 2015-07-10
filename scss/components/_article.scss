@@ -1,7 +1,9 @@
 article {
-    font-size: rem(18);
-    
+    margin-bottom: rem(40);
+
+    font-size: rem(19);
+
     a {
-        border-bottom: 1px solid $purple--light;
+        border-bottom: 1px solid $purple--lightest;
     }
 }

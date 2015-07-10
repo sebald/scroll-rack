@@ -2,36 +2,38 @@ $menuWidth: 300;
 
 page-menu {
     z-index: 100;
-    
+
     position: absolute;
     top: 0;
     left: 0;
-    
+
     height: 100%;
     width: 100%;
-    
+
     padding: rem(30) rem(30);
-    
+
     background: $white;
-    
+
     font-size: 90%;
-    
+
     @include transform(translate3d(rem(-$menuWidth),0,0));
-    
+
     @include transition(transform 0.4s);
     @include transition-timing-cubic-bezier;
-    
+
     @include breakpoint($menuWidth + 50) {
         width: rem($menuWidth);
     }
-    
+
     body[is-open] & {
+        box-shadow: -5px 0 25px 10px rgba(0,0,0,0.3);
+
         @include transform(translate3d(0,0,0));
-        
-        @include transition(transform 0.8s);
+
+        @include transition(transform 0.6s);
         @include transition-timing-cubic-bezier;
     }
-    
+
     // Collapse <section-list> a bit
     section-list ul {
         margin-bottom: rem(30);
@@ -43,47 +45,47 @@ page-menu {
 
 page-menu-title {
     display: block;
-    
+
     margin: 0 0 rem(30);
     padding: 0 0 rem(6);
-    
+
     color: $purple--dark;
     font-size: rem(20);
     font-weight: 700;
     font-family: $fontFamily--sans;
     line-height: 1;
-    
+
     @include heading-border;
 }
 
 page-menu-backdrop {
     display: block;
     z-index: 10;
-    
+
     position: absolute;
     top: 0;
     left: 0;
-    
+
     height: 100%;
     width: 100%;
-    
+
     background: rgba(0,0,0, 0.3);
     opacity: 0;
-    
+
     cursor: pointer;
-    
+
     @include transform(translate3d(100%,0,0));
-    
+
     @include transition(opacity 0.4s, transform 0s 0.4s);
     @include transition-timing-cubic-bezier;
-    
+
     body[is-open] & {
         opacity: 1;
-        
+
         @include transform(translate3d(0,0,0));
-        
-        @include transition(opacity 0.8s);
-        @include transition-timing-cubic-bezier;        
+
+        @include transition(opacity 0.6s);
+        @include transition-timing-cubic-bezier;
     }
 }
 
@@ -91,18 +93,18 @@ page-menu-toggle {
     display: block;
     position: fixed;
     z-index: 3;
-    
+
     height: rem(158);
     width: rem(55);
-    
+
     padding: 0 rem(10) rem(10);
-    
-    color: $purple--light;
+
+    color: $purple--lightest;
     cursor: pointer;
-    
+
     @include transform(translate(rem(5), rem(-90)));
     @include transition(all 0.3s ease);
-    
+
     // Icon
     path {
         fill: currentColor;
@@ -112,11 +114,11 @@ page-menu-toggle {
         color: $purple;
         @include transform(translate(rem(5), rem(-65)));
     }
-    
+
     // Breakpoint
     @include breakpoint(1000) {
         @include transform(translate(rem(40), rem(-90)));
-        
+
         &:hover {
             @include transform(translate(rem(40), rem(-65)));
         }

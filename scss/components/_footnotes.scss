@@ -1,4 +1,6 @@
 .footnote-ref {
+    padding-left: 2px;
+
     a {
         border: none;
     }
@@ -10,9 +12,65 @@
 
 .footnotes-sep {
     margin-top: rem(80);
-    
+
     border: 0;
     height: 0;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.footnotes-list {
+    margin: 0;
+    padding-left: rem(5);
+
+    font-size: rem(14);
+
+    counter-reset: footnotes;
+
+    li {
+        @include display(flex);
+
+        + li {
+            padding-top: rem(2);
+        }
+
+        &:before {
+            display: block;
+            content: counter(footnotes) ".";
+
+            padding-right: rem(10);
+
+            counter-increment: footnotes;
+
+            color: $grey--dark;
+        }
+    }
+
+    p {
+        margin: 0;
+
+        @include flex(1);
+    }
+
+    a {
+        color: $grey--darker;
+        border: none;
+
+        &:hover {
+            color: $purple--light;
+        }
+    }
+}
+
+.footnote-backref {
+    display: inline-block;
+
+    margin-left: rem(5);
+
+    color: $purple--light;
+    vertical-align: sub;
+
+    &:hover {
+        color: $purple--lighter;
+    }
 }

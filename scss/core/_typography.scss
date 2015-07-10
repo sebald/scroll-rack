@@ -42,7 +42,9 @@ blockquote {
     border-left: 4px solid $grey--lightest;
     background: #fafafa;
 
-    font-size: rem(16);
+    @include breakpoint(small) {
+        font-size: rem(16);
+    }
 
     > p {
         margin: rem(18) 0;

@@ -4,5 +4,17 @@
     	<h1>{{ title }}</h1>
     	{{{ contents }}}
     </article>
-    
+    <article-footer>
+        {{#if prev}}
+        <div class="Article-prev">
+            <a href="/{{ prev }}">{{{ svg 'arrow-left' }}}</a>
+        </div>
+        {{/if}}
+        {{#if next}}
+        <div class="Article-next">
+            <a href="/{{ next }}">{{{ svg 'arrow-right' }}}</a>
+        </div>
+        {{/if}}
+    </article-footer>
+
 {{> footer }}

@@ -1,9 +1,58 @@
 article {
     margin-bottom: rem(40);
 
-    font-size: rem(19);
+
+    @include breakpoint(small) {
+        font-size: rem(19);
+    }
 
     a {
         border-bottom: 1px solid $purple--lightest;
     }
 }
+
+
+article-footer {
+    @include display(flex);
+
+    margin: rem(70) 0 rem(90) rem(-14);
+
+    text-align: center;
+}
+
+.Article-prev,
+.Article-next {
+    max-width: 50%;
+
+    padding-left: rem(14);
+
+    font-size: 0;
+    line-height: 1;
+
+    @include flex(1);
+
+    a {
+        display: block;
+        background:  lighten($grey--lightest, 4%);
+        border-radius: 5px;
+
+        color: $grey;
+
+        @include transition(background 0.1s, color 0.1s);
+        @include transition-timing-cubic-bezier;
+
+        &:hover {
+            color: $grey--dark;
+            background: $grey--lightest;
+        }
+    }
+
+    path {
+        fill: currentColor;
+    }
+}
+
+.Article-next {
+    margin-left: auto;
+}
+

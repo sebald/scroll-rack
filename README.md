@@ -102,6 +102,9 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Backlog
 
+- Navigation from last section page to page of following section.
+- Clean up configuration options
+- Highlight footnotes when `:target`ed
 - Parse code to generate additional documentation
  - Documentation for TypeScript Interfaces
  - Documentation for custom HTML/Web Components and their API

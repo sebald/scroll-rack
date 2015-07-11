@@ -1,8 +1,8 @@
 {
   "name": "scroll-rack",
-  "version": "0.0.0",
-  "description": "Create your code styles and documentation!",
-  "main": "index.js",
+  "version": "0.1.0",
+  "description": "Uses Metalsmith to build documentation pages from markdown",
+  "main": "scroll-rack.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,14 @@
     "type": "git",
     "url": "git+https://github.com/sebald/scroll-rack.git"
   },
-  "author": "Sebastian Sebald <sebastian.sebald@gmail.com> (distractedbysquirrels.com)",
+  "keywords": [
+    "metalsmith",
+    "documentation",
+    "markdown",
+    "static",
+    "generator"
+  ],
+  "author": "Sebastian Sebald <sebastian.sebald@gmail.com> (http://www.distractedbysquirrels.com)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/sebald/scroll-rack/issues"
@@ -27,11 +34,9 @@
     "lodash": "^3.10.0",
     "markdown-it-footnote": "^1.0.0",
     "metalsmith": "^1.7.0",
-    "metalsmith-each": "^0.1.1",
     "metalsmith-layouts": "^1.0.0",
     "metalsmith-markdownit": "^0.1.2",
     "metalsmith-permalinks": "^0.4.0",
-    "metalsmith-prism": "^1.1.0",
     "metalsmith-redirect": "^1.0.2",
     "metalsmith-register-helpers": "^0.1.2",
     "metalsmith-register-partials": "^1.0.2",

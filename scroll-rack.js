@@ -52,6 +52,7 @@ function ScrollRack ( config ) {
 
     // Configure markdown
     md = markdown({
+        typographer: true,
         linkify: true,
         breaks: true,
         langPrefix: 'hljs ',

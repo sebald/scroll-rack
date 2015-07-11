@@ -53,7 +53,7 @@ The generated navigation/table of contents will look like this (where the displa
   2.3 Testing
 ```
 
-Metalsmith allows the usage of YAML front-matters. A `title` is required and will not be read from the Markdown correctly.
+Metalsmith allows the usage of YAML front-matters. A `title` is required and will not be read from the Markdown.
 
 ## Usage
 

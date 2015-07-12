@@ -14,12 +14,19 @@
     margin: 0;
     padding-left: rem(5);
 
+    color: $grey--darker;
     font-size: rem(14);
 
     counter-reset: footnotes;
 
     li {
         @include display(flex);
+
+        &:target {
+            p {
+                background: #fcfcb4;
+            }
+        }
 
         + li {
             padding-top: rem(2);
@@ -29,7 +36,7 @@
             display: block;
             content: counter(footnotes) ".";
 
-            padding-right: rem(10);
+            padding: rem(2) rem(8) rem(2) 0;
 
             counter-increment: footnotes;
 
@@ -39,11 +46,12 @@
 
     p {
         margin: 0;
+        padding: rem(2);
         @include flex(1);
     }
 
     a {
-        color: $grey--darker;
+        color: $purple;
         border: none;
 
         &:hover {
@@ -57,10 +65,11 @@
 
     margin-left: rem(5);
 
-    color: $purple--light;
-    vertical-align: sub;
+    color: $grey--darker !important;
+    line-height: 1;
+    vertical-align: text-bottom;
 
     &:hover {
-        color: $purple--lighter;
+        color: $purple--light !important;
     }
 }

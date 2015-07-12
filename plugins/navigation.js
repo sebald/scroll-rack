@@ -8,7 +8,6 @@ function Navigation ( options ) {
         config;
 
     defaults = {
-        name: 'nav',
         sort: compare
     };
     config = _.assign(defaults, options);
@@ -52,7 +51,7 @@ function Navigation ( options ) {
             });
         });
 
-        metalsmith._metadata[config.name] = groups;
+        metalsmith._metadata['nav'] = groups;
         done();
     }
 

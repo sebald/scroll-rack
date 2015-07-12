@@ -80,7 +80,7 @@ function ScrollRack ( config ) {
 
         .use(nav(config.nav))
         .use(sections({
-            nav: config.nav.name || 'nav',
+            nav: 'nav',
             template: 'templates/sections.hbs',
             redirect: config.redirect || true
         }))

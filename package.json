@@ -30,6 +30,7 @@
     "glob": "^5.0.13",
     "handlebars": "^3.0.3",
     "highlight.js": "^8.6.0",
+    "hint.css": "^1.3.5",
     "livereload": "^0.3.7",
     "lodash": "^3.10.0",
     "markdown-it-footnote": "^1.0.0",

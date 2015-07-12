@@ -5,14 +5,18 @@
     	{{{ contents }}}
     </article>
     <article-footer>
-        {{#if prev}}
+        {{#if prev }}
         <div class="Article-prev">
-            <a href="/{{ prev }}">{{{ svg 'arrow-left' }}}</a>
+            <a class="hint--right hint--rounded" data-hint="{{ prev.title }}" href="/{{ prev.path }}">
+                {{{ svg 'arrow-left' }}}
+            </a>
         </div>
         {{/if}}
-        {{#if next}}
+        {{#if next }}
         <div class="Article-next">
-            <a href="/{{ next }}">{{{ svg 'arrow-right' }}}</a>
+            <a class="hint--left hint--rounded" data-hint="{{ next.title }}" href="/{{ next.path }}">
+                {{{ svg 'arrow-right' }}}
+            </a>
         </div>
         {{/if}}
     </article-footer>

@@ -31,6 +31,10 @@ article-footer {
 
     @include flex(1);
 
+    @include breakpoint(normal) {
+        max-width: rem(100);
+    }
+
     a {
         display: block;
         background:  lighten($grey--lightest, 4%);

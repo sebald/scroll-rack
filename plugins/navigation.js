@@ -1,7 +1,4 @@
-/// <reference path="../typings/tsd.d.ts"/>
-
 var _ = require('lodash');
-
 
 function Navigation ( options ) {
     var defaults,
@@ -31,7 +28,7 @@ function Navigation ( options ) {
                 groups[dir].push({
                     title: file.title,
                     path: path.replace(/index\.html$/, ''),
-                    ref: path
+                    file: path
                 });
             }
         });
@@ -43,11 +40,18 @@ function Navigation ( options ) {
             .sort(config.sort);
 
         // After everything is sorted, we can create next/prev links
-        _.forEach(groups, function ( grp ) {
+        _.forEach(groups, function ( grp, gi ) {
+            var predecessor;
+
             _.forEach(grp.items, function ( item, idx ) {
-                var file = files[item.ref];
-                file.prev = (idx > 0) ? grp.items[idx - 1].ref : null;
-                file.next = (idx < grp.items.length-1) ? grp.items[idx + 1].ref : null;
+                var current = files[item.file];
+
+                if( predecessor ) {
+                    current.prev = _.pick(predecessor, ['path', 'title']);
+                    predecessor.next = _.pick(current, ['path', 'title']);
+                }
+
+                predecessor = current;
             });
         });
 

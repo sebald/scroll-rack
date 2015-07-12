@@ -95,7 +95,9 @@ scrollRack({
 
     sort: function                        // Custom sorting function for sub-sections,
                                           // will user "oder" if specified
-  }
+  },
+
+  port: 8080                              // Port for local server
 });
 ```
 

@@ -116,7 +116,7 @@ function ScrollRack ( config ) {
     if (~flags.indexOf('serve')) {
         metalsmith
             .use(serve({
-                // verbose: true
+                port: config.port || 8080
             }))
             .use(rebuild({
                 pattern: [

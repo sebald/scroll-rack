@@ -76,23 +76,26 @@ var scrollRack = require('scroll-rack');
 // Full options list with defaults
 scrollRack({
 
-    // Required
-    files: undefined,                       // Documentation files root dir
-    dest: undefined,                        // Destination for generated files,
+  // Required
+  files: undefined,                       // Documentation files root dir
+  dest: undefined,                        // Destination for generated files
 
-    // Optional
-    ignore: ['*.js', '*.ts', '.DS_Store'],  // Files that should not be copied to dest
+  // Optional
+  ignore: ['*.js', '*.ts', '.DS_Store'],  // Files that should not be copied to dest
 
-    redirect: true,                         // Create redirects to prevent navigation
-                                            // to "empty pages", redirect to first
-                                            // available page in a section instead
+  redirect: true,                         // Create redirects to prevent navigation
+                                          // to "empty pages", redirect to first
+                                          // available page in a section instead
 
-    code_theme: 'zenburn',                  // See https://highlightjs.org/static/demo/
-                                            // for a full list of available themes
-    nav: {
-      order: []                             // Custom ordering of content sections,
-                                            // default is alphabetically
-    }
+  code_theme: 'zenburn',                  // See https://highlightjs.org/static/demo/
+                                          // for a full list of available themes
+  nav: {
+    order: [],                            // Custom ordering of content sections,
+                                          // default is alphabetically
+
+    sort: function                        // Custom sorting function for sub-sections,
+                                          // will user "oder" if specified
+  }
 });
 ```
 
@@ -105,7 +108,7 @@ Running your script with `--serve` will start the local server with livereload.
 - Navigation from last section page to page of following section.
 - Clean up configuration options
 - Highlight footnotes when `:target`ed
-- Parse code to generate additional documentation
+- Parse source code to generate additional documentation via `@` comments
  - Documentation for TypeScript Interfaces
  - Documentation for custom HTML/Web Components and their API
 

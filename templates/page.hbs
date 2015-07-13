@@ -7,14 +7,14 @@
     <article-footer>
         {{#if prev }}
         <div class="Article-prev">
-            <a class="hint--right hint--rounded" data-hint="{{ prev.title }}" href="/{{ prev.path }}">
+            <a class="Article-link" data-title="{{ prev.title }}" href="/{{ prev.path }}">
                 {{{ svg 'arrow-left' }}}
             </a>
         </div>
         {{/if}}
         {{#if next }}
         <div class="Article-next">
-            <a class="hint--left hint--rounded" data-hint="{{ next.title }}" href="/{{ next.path }}">
+            <a class="Article-link" data-title="{{ next.title }}" href="/{{ next.path }}">
                 {{{ svg 'arrow-right' }}}
             </a>
         </div>

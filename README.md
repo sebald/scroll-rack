@@ -108,6 +108,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Backlog
 
+- Make responsive (currently is just in an "ok" state...)
 - Parse source code to generate additional documentation via `@` comments
  - Documentation for TypeScript Interfaces
  - Documentation for custom HTML/Web Components and their API
@@ -115,4 +116,4 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
-* 0.1.0 Initial release (not yet publihed to npm!)
+* 0.1.0 Initial release

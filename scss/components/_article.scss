@@ -22,41 +22,97 @@ article-footer {
 
 .Article-prev,
 .Article-next {
+    position: relative;
+
     max-width: 50%;
 
     padding-left: rem(14);
 
+    @include flex(1);
+}
+
+.Article-link {
+    display: block;
+    position: relative;
+
+    background:  lighten($grey--lightest, 4%);
+    border-radius: 5px;
+
+    color: $grey;
     font-size: 0;
     line-height: 1;
 
-    @include flex(1);
+    @include transition(background 0.1s linear, color 0.1s linear);
 
     @include breakpoint(normal) {
-        max-width: rem(100);
+        width: rem(100);
+
+        &:before {
+            position: absolute;
+            top: 50%;
+
+            opacity: 0;
+            visibility: hidden;
+
+            margin-top: rem(-8);
+
+            content: attr(data-title);
+
+            color: $purple;
+            font-size: rem(16);
+            line-height: 1;
+            font-family: $fontFamily--sans;
+            letter-spacing: 0.1px;
+
+            white-space: nowrap;
+
+            @include transition(opacity 0.5s ease, transform 0.5s ease);
+            @include transition-delay(0.1s);
+
+            @include transform(translate(0,0));
+        }
     }
 
-    a {
-        display: block;
-        background:  lighten($grey--lightest, 4%);
-        border-radius: 5px;
+    &:hover {
+        color: $grey--dark;
+        background: $grey--lightest;
 
-        color: $grey;
-
-        @include transition(background 0.1s, color 0.1s);
-        @include transition-timing-cubic-bezier;
-
-        &:hover {
-            color: $grey--dark;
-            background: $grey--lightest;
+        @include breakpoint(normal) {
+            &:before {
+                opacity: 1;
+                visibility: visible;
+            }
         }
     }
 
     path {
         fill: currentColor;
     }
-}
 
-.Article-next {
-    margin-left: auto;
-}
+    .Article-next & {
+        margin-left: auto;
 
+        &:before {
+            right: 100%;
+        }
+
+        @include breakpoint(normal) {
+            &:hover:before {
+                @include transform(translate(rem(-15)));
+            }
+        }
+    }
+
+    .Article-prev & {
+
+        &:before {
+            left: 100%;
+        }
+
+        @include breakpoint(normal) {
+            &:hover:before {
+                @include transform(translate(rem(15)));
+            }
+        }
+    }
+}

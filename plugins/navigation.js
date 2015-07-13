@@ -40,9 +40,8 @@ function Navigation ( options ) {
             .sort(config.sort);
 
         // After everything is sorted, we can create next/prev links
+        var predecessor;
         _.forEach(groups, function ( grp, gi ) {
-            var predecessor;
-
             _.forEach(grp.items, function ( item, idx ) {
                 var current = files[item.file];
 

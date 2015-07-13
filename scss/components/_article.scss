@@ -31,6 +31,10 @@ article-footer {
     @include flex(1);
 }
 
+.Article-next {
+    margin-left: auto;
+}
+
 .Article-link {
     display: block;
     position: relative;

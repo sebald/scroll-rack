@@ -81,7 +81,8 @@ scrollRack({
   dest: undefined,                        // Destination for generated files
 
   // Optional
-  ignore: ['*.js', '*.ts', '.DS_Store'],  // Files that should not be copied to dest
+  ignore: ['*.js', '*.ts', '.DS_Store'],  // Patterns that should not be copied to dest,
+                                          // will be used in "metalsmith.ignore"
 
   redirect: true,                         // Create redirects to prevent navigation
                                           // to "empty pages", redirect to first

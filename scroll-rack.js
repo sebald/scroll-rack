@@ -33,8 +33,9 @@ var callerId = require('caller-id'),
 function ScrollRack ( config ) {
     var caller = callerId.getData(),
 
-        filesPath = path.join(path.dirname(caller.filePath), config.files),
-        destPath = path.join(path.dirname(caller.filePath), config.dest),
+        rootPath = path.dirname(caller.filePath),
+        sourcePath = path.join(rootPath, config.files),
+        destPath = path.join(rootPath, config.dest),
         ignoreFiles = config.ignore || ['*.js', '*.ts', '.DS_Store'],
 
         flags = [],
@@ -63,7 +64,7 @@ function ScrollRack ( config ) {
 
     // Build
     metalsmith = Metalsmith(__dirname)
-        .source(filesPath)
+        .source(sourcePath)
         .destination(destPath)
         .ignore(ignoreFiles)
         .use(partials({
@@ -92,9 +93,16 @@ function ScrollRack ( config ) {
             default: 'page.hbs',
             directory: 'templates'
         }))
+        .use(sass({
+            file: 'scss/style.scss',
+            sourceMap: true,
+            outputStyle: 'expanded'
+        }));
 
-        .use(copy([
-            {
+    // Copy files
+    metalsmith
+        .use(copy(
+            [{
                 pattern: __dirname + '/assets/js/*.js',
                 target: ''
             }, {
@@ -104,13 +112,15 @@ function ScrollRack ( config ) {
             }, {
                 pattern: __dirname + '/assets/favicon.ico',
                 target: ''
-            }
-        ]))
-        .use(sass({
-            file: 'scss/style.scss',
-            sourceMap: true,
-            outputStyle: 'expanded'
-        }));
+            }].concat(
+                // Conditionally set assets
+                config.assets ? [{
+                    pattern: path.join(rootPath, config.assets, '/**/*'),
+                    target:  'assets'
+                }] : []
+            )
+        ));
+
 
     // Activate browser sync?
     if (~flags.indexOf('serve')) {
@@ -120,12 +130,12 @@ function ScrollRack ( config ) {
             }))
             .use(rebuild({
                 pattern: [
-                    filesPath + '**/*',
-                    __dirname + '/scroll-rack.js',
-                    __dirname + '/plugins/**/*',
-                    __dirname + '/templates/**/*',
-                    __dirname + '/scss/**/*.scss',
-                    __dirname + '/assets/**/*'
+                    path.join(sourcePath + '/**/*'),
+                    path.join(__dirname + '/scroll-rack.js'),
+                    path.join(__dirname + '/plugins/**/*'),
+                    path.join(__dirname + '/templates/**/*'),
+                    path.join(__dirname + '/scss/**/*.scss'),
+                    path.join(__dirname + '/assets/**/*')
                 ],
                 livereload: true
             }));

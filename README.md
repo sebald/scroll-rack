@@ -81,6 +81,8 @@ scrollRack({
   dest: undefined,                        // Destination for generated files
 
   // Optional
+  assets: undefined,                      // Assets folder, copied to /assets
+
   ignore: ['*.js', '*.ts', '.DS_Store'],  // Patterns that should not be copied to dest,
                                           // will be used in "metalsmith.ignore"
 

@@ -123,5 +123,6 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
-* 0.2.0 Add option to specify an assets folder.
+* 0.3.0 Make linking to assets easier (#2)
+* 0.2.0 Add option to specify an assets folder
 * 0.1.0 Initial release

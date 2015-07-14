@@ -22,6 +22,7 @@ var callerId = require('caller-id'),
     markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),
+    normalizeAssetPath = require('./plugins/normalizeAssetPath'),
     rebuild = require('./plugins/rebuild'),
     sass = require('./plugins/sass'),
     sections = require('./plugins/sections'),
@@ -78,6 +79,7 @@ function ScrollRack ( config ) {
         .use(permalinks({
             pattern: ':category/:title'
         }))
+        .use(normalizeAssetPath())
 
         .use(nav(config.nav))
         .use(sections({

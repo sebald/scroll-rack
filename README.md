@@ -104,6 +104,12 @@ scrollRack({
 });
 ```
 
+### Asset links
+
+Sometimes using the correct path to an asset can be frustrating, esspecially if you have to specify a relative path because you host the generate files in a sub-directory or something similar. *Scroll Rack* supports you by automatically parsing all assets paths to relative paths.
+
+For example: Writing `![Image](/assets/my-image.png)` inside the file `section/some-page/index.html` would be parsed to `../../assets/my-image.png`.
+
 ### Local Server with Livereload
 
 Running your script with `--serve` will start the local server with livereload.

@@ -1,6 +1,6 @@
 {
   "name": "scroll-rack",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Uses Metalsmith to build documentation pages from markdown",
   "main": "scroll-rack.js",
   "scripts": {

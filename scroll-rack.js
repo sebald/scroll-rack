@@ -60,7 +60,9 @@ function ScrollRack ( config ) {
         langPrefix: 'hljs ',
         highlight: escape
     });
-    md.parser.use(require('markdown-it-footnote'));
+    md.parser
+        .use(require('markdown-it-footnote'))
+        .use(require('markdown-it-smartarrows'));
 
 
     // Build

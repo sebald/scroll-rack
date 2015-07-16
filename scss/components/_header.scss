@@ -1,0 +1,38 @@
+.Header--withAnchor {
+    position: relative;
+
+    > a {
+        color: $black;
+        border: none;
+    }
+
+    @include breakpoint(normal) {
+        &:before {
+            display: block;
+
+            position: absolute;
+            right: 100%;
+            top: rem(7);
+
+            content: '#';
+
+            margin-right: rem(5);
+
+            color: $grey;
+            font-size: 80%;
+            font-weight: 400;
+            line-height: 1;
+
+            opacity: 0;
+
+            @include transition(opacity 0.1s ease);
+        }
+
+        &:hover {
+
+            &:before {
+                opacity: 1;
+            }
+        }
+    }
+}

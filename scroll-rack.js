@@ -8,6 +8,7 @@ var callerId = require('caller-id'),
 
     log = require('./helpers/log'),
     escape = require('./helpers/escape'),
+    renderPermalink = require('./helpers/renderPermalink'),
     theme = require('./helpers/theme'),
 
     // Metalsmith
@@ -60,7 +61,14 @@ function ScrollRack ( config ) {
         langPrefix: 'hljs ',
         highlight: escape
     });
-    md.parser.use(require('markdown-it-footnote'));
+    md.parser
+        .use(require('markdown-it-footnote'))
+        .use(require('markdown-it-smartarrows'))
+        .use(require('markdown-it-anchor'), {
+            level: 2,
+            permalink: true,
+            renderPermalink: renderPermalink
+        });
 
 
     // Build

@@ -1,4 +1,4 @@
-$textBlockSPacing: 24;
+$textBlockSPacing: 38;
 
 h1,
 h2,
@@ -19,11 +19,12 @@ h1 {
 
 h2 {
     font-size: rem(34);
-    margin: rem(70) 0 rem(12);
+    margin: rem(70) 0 rem(4);
 }
 
-p {
-    margin: rem($textBlockSPacing) 0;
+p,
+pre {
+    margin: 0 0 rem($textBlockSPacing);
 }
 
 a {
@@ -43,7 +44,7 @@ blockquote {
     background: #fafafa;
 
     @include breakpoint(small) {
-        font-size: rem(16);
+        font-size: rem(18);
     }
 
     > p {

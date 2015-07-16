@@ -5,7 +5,7 @@ function Theme ( name ) {
         path.dirname(require.resolve('highlight.js')),
         '..',
         'styles',
-        (name || 'zenburn') + '.css'
+        (name || 'atelier-forest.light') + '.css'
     );
 }
 

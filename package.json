@@ -32,6 +32,7 @@
     "highlight.js": "^8.6.0",
     "livereload": "^0.3.7",
     "lodash": "^3.10.0",
+    "markdown-it-anchor": "^2.1.0",
     "markdown-it-footnote": "^1.0.0",
     "markdown-it-smartarrows": "^1.0.1",
     "metalsmith": "^1.7.0",

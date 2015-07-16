@@ -3,7 +3,7 @@ $menuWidth: 300;
 page-menu {
     z-index: 100;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -39,6 +39,7 @@ page-menu {
         margin-bottom: rem(30);
     }
     section-list-title {
+        font-size: rem(18);
         margin-bottom: rem(8) !important;
     }
 }
@@ -62,7 +63,7 @@ page-menu-backdrop {
     display: block;
     z-index: 10;
 
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 

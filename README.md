@@ -123,6 +123,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.4.1 Improved typography.
 * 0.4.0 Add [markdown-it-smartarrows](https://github.com/adam-p/markdown-it-smartarrows) and [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor) ([#1](https://github.com/sebald/scroll-rack/issues/1))
 * 0.3.0 Make linking to assets easier ([#2](https://github.com/sebald/scroll-rack/issues/2))
 * 0.2.0 Add option to specify an assets folder

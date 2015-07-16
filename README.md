@@ -90,7 +90,7 @@ scrollRack({
                                           // to "empty pages", redirect to first
                                           // available page in a section instead
 
-  code_theme: 'zenburn',                  // See https://highlightjs.org/static/demo/
+  code_theme: 'atelier-forest.light',     // See https://highlightjs.org/static/demo/
                                           // for a full list of available themes
   nav: {
     order: [],                            // Custom ordering of content sections,

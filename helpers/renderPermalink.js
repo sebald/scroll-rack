@@ -7,25 +7,27 @@ function renderPermalink ( slug, opts, tokens, idx ) {
         link_open,
         link_close;
 
-    // Store header text and clear content
+    // Anchor icon
     text = new Token('text', '', 0);
-    text.content = tokens[idx+1].content;
-    tokens[idx+1].content = '';
+    text.content = '#';
 
     // <a>
     link_open = new Token('link_open', 'a', 1);
-    link_open.attrPush(['href', '#' +slug]);
+    link_open.attrs = [
+        ['href', '#' +slug],
+        ['aria-hidden', 'true']
+    ];
 
     // </a>
     link_close = new Token('link_close', 'a', -1);
 
     // Add clas and append link
     tokens[idx].attrPush(['class', 'Header--withAnchor']);
-    tokens[idx + 1].children = [
+    tokens[idx + 1].children.unshift(
         link_open,
         text,
         link_close
-    ];
+    );
 }
 
 

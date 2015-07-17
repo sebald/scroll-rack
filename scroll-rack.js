@@ -24,8 +24,7 @@ var callerId = require('caller-id'),
     rebuild = require('./plugins/rebuild'),
     sass = require('./plugins/sass'),
     sections = require('./plugins/sections'),
-    serve = require('metalsmith-serve'),
-    watch = require('metalsmith-watch');
+    serve = require('metalsmith-serve');
 
 
 // Main

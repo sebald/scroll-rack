@@ -1,5 +1,3 @@
-/// <reference path="typings/node/node.d.ts"/>
-
 // Import
 var callerId = require('caller-id'),
     path = require('path'),
@@ -19,7 +17,6 @@ var callerId = require('caller-id'),
     layouts  = require('metalsmith-layouts'),
     partials = require('metalsmith-register-partials'),
     permalinks = require('metalsmith-permalinks'),
-    prism = require('metalsmith-prism'),
     markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),

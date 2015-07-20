@@ -14,6 +14,7 @@ var callerId = require('caller-id'),
 
     copy = require('./plugins/copy'),
     helpers = require('metalsmith-register-helpers'),
+    hyphenate = require('metalsmith-hyphenate'),
     layouts  = require('metalsmith-layouts'),
     partials = require('metalsmith-register-partials'),
     permalinks = require('metalsmith-permalinks'),
@@ -98,6 +99,9 @@ function ScrollRack ( config ) {
             engine: 'handlebars',
             default: 'page.hbs',
             directory: 'templates'
+        }))
+        .use(hyphenate({
+            elements: ['p', 'blockquote']
         }))
         .use(sass({
             file: 'scss/style.scss',

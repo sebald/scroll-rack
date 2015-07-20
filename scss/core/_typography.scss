@@ -49,7 +49,9 @@ blockquote {
     padding: rem(1) rem(10) rem(1) rem(22);
 
     border-left: 4px solid $grey--lightest;
-    background: #fafafa;
+    background: #f8f8f8;
+
+    font-style: italic;
 
     @include breakpoint(small) {
         font-size: rem(22);

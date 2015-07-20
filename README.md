@@ -123,6 +123,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.4.6 Minor typography improvements for paragraphs and block quotes.
 * 0.4.5 Style foot notes and code blocks.
 * 0.4.4 Improve typography.
 * 0.4.3 Remove deprecated dependency.

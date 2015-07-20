@@ -15,7 +15,7 @@
     padding-left: rem(5);
 
     color: $grey--darker;
-    font-size: rem(15);
+    font-size: rem(18);
 
     counter-reset: footnotes;
 
@@ -28,10 +28,6 @@
             }
         }
 
-        + li {
-            padding-top: rem(2);
-        }
-
         &:before {
             display: block;
             content: counter(footnotes) ".";
@@ -41,8 +37,8 @@
             counter-increment: footnotes;
 
             color: $grey--dark;
-            font-size: rem(13);
-            line-height: rem(27);
+            font-size: rem(15);
+            line-height: rem(34);
         }
     }
 

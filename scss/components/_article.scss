@@ -2,7 +2,8 @@ article {
     margin-bottom: rem(40);
 
     @include breakpoint(small) {
-        font-size: rem(20);
+        font-size: rem(24);
+        line-height: 1.8;
     }
 
     h1 {
@@ -11,6 +12,10 @@ article {
 
     a {
         border-bottom: 1px solid $purple--lightest;
+    }
+
+    strong {
+        font-weight: 600;
     }
 }
 

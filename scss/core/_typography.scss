@@ -22,9 +22,17 @@ h2 {
     margin: rem(70) 0 rem(4);
 }
 
+h3 {
+    margin-bottom: rem(4);
+}
+
 p,
 pre {
     margin: 0 0 rem($textBlockSPacing);
+}
+
+p {
+    @include hyphens(auto);
 }
 
 a {
@@ -49,5 +57,15 @@ blockquote {
 
     > p {
         margin: rem(18) 0;
+    }
+}
+
+ul {
+    margin: rem($textBlockSPacing) 0;
+}
+
+li {
+    > p:last-child {
+        margin-bottom: 0;
     }
 }

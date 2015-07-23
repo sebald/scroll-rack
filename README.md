@@ -110,6 +110,10 @@ Sometimes using the correct path to an asset can be frustrating, esspecially if 
 
 For example: Writing `![Image](/assets/my-image.png)` in a file named `section/some-page.md` would be parsed to `../../assets/my-image.png` because the file will get the following permalink `section/some-page/index.html`.
 
+### Page in Root Directory
+
+You can position page before or after the section list inside the navigation by setting the `nav` property in the front matter to `before`/`after`. By default pages are added before the section list.
+
 ### Local Server with Livereload
 
 Running your script with `--serve` will start the local server with livereload.
@@ -123,6 +127,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.5.0 Create navigation for pages in root, position it before/after sections.
 * 0.4.6 Minor typography improvements for paragraphs and block quotes.
 * 0.4.5 Style foot notes and code blocks.
 * 0.4.4 Improve typography.

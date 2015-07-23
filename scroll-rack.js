@@ -12,6 +12,7 @@ var callerId = require('caller-id'),
     // Metalsmith
     Metalsmith = require('metalsmith'),
 
+    branch = require('metalsmith-branch'),
     copy = require('./plugins/copy'),
     helpers = require('metalsmith-register-helpers'),
     hyphenate = require('metalsmith-hyphenate'),
@@ -81,9 +82,11 @@ function ScrollRack ( config ) {
         }))
 
         .use(md)
-        .use(permalinks({
-            pattern: ':category/:title'
-        }))
+        .use(branch(['**/*.html', '!*.html'])
+            .use(permalinks({
+                pattern: ':category/:title'
+            })
+        ))
         .use(normalizeAssetPath())
 
         .use(nav(config.nav))

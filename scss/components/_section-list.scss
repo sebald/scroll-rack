@@ -5,7 +5,7 @@ section-list {
         counter-reset: sub-section;
         list-style: none;
 
-        margin: 0 0 em(50);
+        margin: 0 0 em(15);
         padding: 0 0 0 em(26);
 
         font-size: em(24);
@@ -34,6 +34,7 @@ section-list {
     }
 }
 
+section-title,
 section-list-title {
     display: block;
 
@@ -43,7 +44,13 @@ section-list-title {
     font-size: em(36);
     font-weight: 700;
     text-transform: capitalize;
+}
 
+section-title {
+    padding-left: em(22, 20);
+}
+
+section-list-title {
     &:before {
         color: $grey;
         font-weight: 400;

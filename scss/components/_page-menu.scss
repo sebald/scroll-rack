@@ -36,9 +36,10 @@ page-menu {
 
     // Collapse <section-list> a bit
     section-list ul {
-        margin-bottom: rem(30);
+        margin-bottom: rem(16);
         font-size: rem(19);
     }
+    section-title,
     section-list-title {
         font-size: rem(24);
         margin-bottom: rem(8) !important;

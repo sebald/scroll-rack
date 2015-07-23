@@ -1,10 +1,16 @@
-{{#each nav}}
+{{#each nav.before}}
+    <section-title><a href="/{{ path }}">{{ title }}</a></section-title>
+{{/each}}
+{{#each nav.groups}}
     {{#if name}}
-    <section-list-title>{{name}}</section-list-title>
+    <section-list-title>{{ name }}</section-list-title>
     {{/if}}
     <ul>
         {{#each items}}
         <li><a href="/{{ path }}">{{ title }}</a></li>
         {{/each}}
     </ul>
+{{/each}}
+{{#each nav.after}}
+    <section-title><a href="/{{ path }}">{{ title }}</a></section-title>
 {{/each}}

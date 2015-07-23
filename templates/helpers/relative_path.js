@@ -5,6 +5,8 @@ module.exports = function ( current, target ) {
     current = path.normalize(current).slice(0);
     target = path.normalize(target).slice(0);
     current = path.dirname(current);
-    rel_path = path.relative(current, target);
+    rel_path = path
+        .relative(current, target)
+        .replace(/index\.html$/, '');
     return rel_path;
 };

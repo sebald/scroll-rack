@@ -22,6 +22,7 @@ var callerId = require('caller-id'),
     markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),
+    neighbours = require('./plugins/neighbourLinks'),
     normalizeAssetPath = require('./plugins/normalizeAssetPath'),
     rebuild = require('./plugins/rebuild'),
     sass = require('./plugins/sass'),
@@ -98,6 +99,8 @@ function ScrollRack ( config ) {
         .use(metadata({
             flags: flags
         }))
+        .use(neighbours())
+
         .use(layouts({
             engine: 'handlebars',
             default: 'page.hbs',

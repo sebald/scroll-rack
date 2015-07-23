@@ -32,19 +32,19 @@
             display: block;
             content: counter(footnotes) ".";
 
-            padding: rem(2) rem(8) rem(2) 0;
+            padding: 0 rem(8) 0 0;
 
             counter-increment: footnotes;
 
             color: $grey--dark;
             font-size: rem(15);
-            line-height: rem(34);
+            line-height: rem(28);
         }
     }
 
     p {
         margin: 0;
-        padding: rem(2);
+        line-height: rem(28);
         @include flex(1);
     }
 

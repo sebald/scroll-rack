@@ -39,8 +39,8 @@ function Sections ( options ) {
         }
 
         // Sections have contents page?
-        if( Object.keys(nav).length && !config.redirect ) {
-            _.forEach( nav, function ( section ) {
+        if( Object.keys(nav.groups).length && !config.redirect ) {
+            _.forEach( nav.groups, function ( section ) {
                 if( !files[section.name + '/' + config.fileName] ) {
                     files[section.name + '/' + config.fileName] = {
                         layout: template,
@@ -57,7 +57,7 @@ function Sections ( options ) {
         // Build redirects
         if( config.redirect ) {
             var redirect_config = {};
-            _.forEach( nav, function ( section ) {
+            _.forEach( nav.groups, function ( section ) {
                if( !files['/' + section.name + '/.index.html'] ) {
                    redirect_config['/' + section.name] = '/' + section.items[0].path;
                }

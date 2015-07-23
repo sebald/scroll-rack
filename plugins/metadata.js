@@ -7,7 +7,7 @@ function Metadata ( options ) {
         _.forEach(files, function ( f, path ) {
             files[path].path = path;
         });
-        
+
         // Add build date
         metalsmith._metadata['build_date'] = new Date();
         // Inject livereload?

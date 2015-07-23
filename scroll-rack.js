@@ -12,6 +12,7 @@ var callerId = require('caller-id'),
     // Metalsmith
     Metalsmith = require('metalsmith'),
 
+    branch = require('metalsmith-branch'),
     copy = require('./plugins/copy'),
     helpers = require('metalsmith-register-helpers'),
     hyphenate = require('metalsmith-hyphenate'),
@@ -21,6 +22,7 @@ var callerId = require('caller-id'),
     markdown   = require('metalsmith-markdownit'),
     metadata = require('./plugins/metadata'),
     nav = require('./plugins/navigation'),
+    neighbours = require('./plugins/neighbourLinks'),
     normalizeAssetPath = require('./plugins/normalizeAssetPath'),
     rebuild = require('./plugins/rebuild'),
     sass = require('./plugins/sass'),
@@ -81,9 +83,11 @@ function ScrollRack ( config ) {
         }))
 
         .use(md)
-        .use(permalinks({
-            pattern: ':category/:title'
-        }))
+        .use(branch(['**/*.html', '!*.html'])
+            .use(permalinks({
+                pattern: ':category/:title'
+            })
+        ))
         .use(normalizeAssetPath())
 
         .use(nav(config.nav))
@@ -95,6 +99,8 @@ function ScrollRack ( config ) {
         .use(metadata({
             flags: flags
         }))
+        .use(neighbours())
+
         .use(layouts({
             engine: 'handlebars',
             default: 'page.hbs',

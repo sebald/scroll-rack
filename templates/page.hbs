@@ -7,14 +7,14 @@
     <article-footer>
         {{#if prev }}
         <div class="Article-prev">
-            <a class="Article-link" data-title="{{ prev.title }}" href="/{{ prev.path }}">
+            <a class="Article-link" data-title="{{ prev.title }}" href="{{ relative_path path prev.path }}">
                 {{{ svg 'arrow-left' }}}
             </a>
         </div>
         {{/if}}
         {{#if next }}
         <div class="Article-next">
-            <a class="Article-link" data-title="{{ next.title }}" href="/{{ next.path }}">
+            <a class="Article-link" data-title="{{ next.title }}" href="{{ relative_path path next.path }}">
                 {{{ svg 'arrow-right' }}}
             </a>
         </div>

@@ -38,7 +38,7 @@ function Navigation ( options ) {
 
             // File IN the root directory
             else {
-                nav[file.nav === 'after' ? 'after' : 'before']
+                nav[file.nav_position === 'after' ? 'after' : 'before']
                     .push({
                         title: file.title,
                         path: path,

@@ -1,6 +1,6 @@
 ---
 title: Preface
-nav: before
+nav_position: before
 ---
 
 > Always code as if the person who ends up maintaining your code is a violent psychopath who knows where you live.^[Quote from [Coding For Violent Psychopaths](http://blog.codinghorror.com/coding-for-violent-psychopaths/)]

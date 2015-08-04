@@ -115,7 +115,7 @@ For example: Writing `![Image](/assets/my-image.png)` in a file named `section/s
 
 ### Page in Root Directory
 
-You can position page before or after the section list inside the navigation by setting the `nav` property in the front matter to `before`/`after`. By default pages are added before the section list.
+You can position page before or after the section list inside the navigation by setting the `nav_position` property in the front matter to `before`/`after`. By default pages are added before the section list.
 
 ### Local Server with Livereload
 
@@ -130,6 +130,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.5.2 Fix navigation of `before`/`after` pages. See f996f78573b6b98c476a6b28bb6fb739fbfdd0d7
 * 0.5.1 Add `callback` option.
 * 0.5.0 Create navigation for pages in root, position it before/after sections.
 * 0.4.6 Minor typography improvements for paragraphs and block quotes.

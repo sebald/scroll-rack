@@ -58,8 +58,8 @@ function Sections ( options ) {
         if( config.redirect ) {
             var redirect_config = {};
             _.forEach( nav.groups, function ( section ) {
-               if( !files['/' + section.name + '/.index.html'] ) {
-                   redirect_config['/' + section.name] = '/' + section.items[0].path;
+               if( !files[section.name + '/.index.html'] ) {
+                   redirect_config[section.name] = section.items[0].path;
                }
             });
             redirect(redirect_config)(files, metalsmith, function () {});

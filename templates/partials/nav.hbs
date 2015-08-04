@@ -1,5 +1,5 @@
 {{#each nav.before}}
-    <section-title><a href="/{{ path }}">{{ title }}</a></section-title>
+    <section-title><a href="{{ relative_path ../current path }}">{{ title }}</a></section-title>
 {{/each}}
 {{#each nav.groups}}
     {{#if name}}
@@ -7,10 +7,10 @@
     {{/if}}
     <ul>
         {{#each items}}
-        <li><a href="/{{ path }}">{{ title }}</a></li>
+        <li><a href="{{ relative_path ../../current path }}">{{ title }}</a></li>
         {{/each}}
     </ul>
 {{/each}}
 {{#each nav.after}}
-    <section-title><a href="/{{ path }}">{{ title }}</a></section-title>
+    <section-title><a href="{{ relative_path ../current path }}">{{ title }}</a></section-title>
 {{/each}}

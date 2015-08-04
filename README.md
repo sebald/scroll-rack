@@ -100,7 +100,10 @@ scrollRack({
                                           // will user "oder" if specified
   },
 
-  port: 8080                              // Port for local server
+  port: 8080,                             // Port for local server
+
+  callback: undefined                     // Function which is called when build finished
+                                          // Is only executed w/o --serve flag
 });
 ```
 
@@ -127,6 +130,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.5.1 Add `callback` option.
 * 0.5.0 Create navigation for pages in root, position it before/after sections.
 * 0.4.6 Minor typography improvements for paragraphs and block quotes.
 * 0.4.5 Style foot notes and code blocks.

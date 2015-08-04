@@ -8,5 +8,9 @@ ScrollRack({
 
     nav: {
         order: ['typescript', 'angular']
+    },
+
+    callback: function () {
+        console.log('callback');
     }
 });

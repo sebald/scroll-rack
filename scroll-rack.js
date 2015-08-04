@@ -1,5 +1,6 @@
 // Import
-var callerId = require('caller-id'),
+var _ = require('lodash'),
+    callerId = require('caller-id'),
     path = require('path'),
     open = require('open'),
     chalk = require('chalk'),
@@ -163,6 +164,9 @@ function ScrollRack ( config ) {
             log(chalk.green.bold('Build complete!'));
             if (~flags.indexOf('serve')) {
                 open('http://localhost:'+ (config.port || 8080) + '/');
+            }
+            else if ( _.isFunction(config.callback) ) {
+                config.callback();
             }
         });
 }

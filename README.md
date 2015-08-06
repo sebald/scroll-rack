@@ -130,6 +130,7 @@ Running your script with `--serve` will start the local server with livereload.
 
 ## Release History
 
+* 0.5.3 Fix error with not loading `main.js` and livereload instead ...
 * 0.5.2 Fix navigation of `before`/`after` pages. See f996f78573b6b98c476a6b28bb6fb739fbfdd0d7
 * 0.5.1 Add `callback` option.
 * 0.5.0 Create navigation for pages in root, position it before/after sections.

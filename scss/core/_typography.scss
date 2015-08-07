@@ -2,7 +2,8 @@ $textBlockSPacing: 38;
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     font-family: $fontFamily--sans;
     line-height: 1.2;
 }
@@ -18,12 +19,20 @@ h1 {
 }
 
 h2 {
-    font-size: rem(34);
+    font-size: rem(36);
     margin: rem(70) 0 rem(4);
 }
 
-h3 {
+h3,
+h4 {
     margin-bottom: rem(4);
+}
+
+h4 {
+    @include breakpoint(small) {
+        margin-top: rem(48);
+        font-size: rem(20);
+    }
 }
 
 p,

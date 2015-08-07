@@ -39,7 +39,7 @@
 
 h2.Header--withAnchor {
     > a {
-        top: rem(3);
+        top: rem(4);
         font-size: rem(26);
     }
 }
@@ -47,7 +47,14 @@ h2.Header--withAnchor {
 
 h3.Header--withAnchor {
     > a {
-        top: rem(-1);
+        top: rem(2);
+        font-size: rem(20);
+    }
+}
+
+h4.Header--withAnchor {
+    > a {
+        top: rem(-2);
         font-size: rem(20);
     }
 }
